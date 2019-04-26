@@ -1,24 +1,25 @@
-#include <stdio.h>
+#include "ft_printf.h"
 
 int	main(void)
 {
 	int		i;
-	int		j;
-	long long l;
-	unsigned long long ul;
-	double	d;
-	char	*s = "fuckfuck";
+//	int		j;
+//	long long l;
+//	unsigned long long ul;
+//	double	d;
+//	char	*s = "fuckfuck";
 
 	i = 75;
-	j = -75;
-	l = 9223372036854775807;
-	ul = 18446744073709551615ULL;
-	d = 15.69;
-	printf("--simple stuff--\n");
-	printf("text\n");
-	printf("%c\n", 'Z');
-	printf("%c\n", i);
-	printf("%p\n", &i);
+//	j = -75;
+//	l = 9223372036854775807;
+//	ul = 18446744073709551615ULL;
+//	d = 15.69;
+//	printf("--simple stuff--\n");
+//	printf("text\n");
+//	printf("%c\n", 'Z');
+//	printf("%c\n", i);
+	ft_printf("dude%cdude\n", '$');
+/*	printf("%p\n", &i);
 	printf("\n");
 	printf("%s\n", s);
 	printf("%i\n", i);
@@ -107,5 +108,5 @@ int	main(void)
 	printf("%lli\n", l);
 	printf("-- lengths: ull --\n");
 	printf("%llu\n", ul);
-	printf("\n");
+	printf("\n");*/
 }
