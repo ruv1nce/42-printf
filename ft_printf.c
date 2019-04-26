@@ -1,14 +1,5 @@
 #include "ft_printf.h"
 
-void	print_c(va_list ap, t_options *opt)
-{
-	char	c;
-
-	opt->spec = '@';
-	c = va_arg(ap, int);
-	write(1, &c, 1);
-}
-
 void	erase_opt(t_options *opt)
 {
 	opt->width = 0;

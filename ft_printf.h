@@ -37,5 +37,11 @@ typedef void (*handlers)(va_list, t_options *);
 
 int		ft_printf(char *format, ...);
 void	parser(char **format, t_options *opt);
+void	print_c(va_list ap, t_options *opt);
+void	print_s(va_list ap, t_options *opt);
+void	print_i(va_list ap, t_options *opt);
+void	print_o(va_list ap, t_options *opt);
+void	print_u(va_list ap, t_options *opt);
+void	print_x(va_list ap, t_options *opt);
 
 #endif
