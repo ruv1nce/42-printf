@@ -9,32 +9,53 @@ void	print_c(va_list ap, t_options *opt)
 	write(1, &c, 1);
 }
 
-char	parser(char **format, t_options *opt)
+void	erase_opt(t_options *opt)
 {
-	if (**format == 'c')
-	{
-		opt->spec = 'c';
-		return ('c');
-	}
-	return ('@');
+	opt->width = 0;
+	opt->pad = 0;
+	opt->prec = -1;
+	opt->pos = 0;
+	opt->hash = 0;
+	opt->len = 0;
+	opt->spec = 0;
+}
+
+void	print_opt(t_options *opt)
+{
+	printf("width %i\n", opt->width);
+	printf("pad  %i\n", opt->pad);
+	printf("prec %i\n", opt->prec);
+	printf("pos  %i\n", opt->pos);
+	printf("hash %i\n", opt->hash);
+	printf("len  %i\n", opt->len);
+	printf("spec %i\n", opt->spec);
+	printf("\n");
 }
 
 int		ft_printf(char *format, ...)
 {
 	va_list			ap;
 	t_options		opt;
-	unsigned char	spec;
 	const handlers handler[121] = {['c'] = print_c};
-	//, ['s'] = print_s, ['d'] = print_i, ['i'] = print_i};
+	//, ['s'] = print_s, ['i'] = print_i, ['o'] = print_o, ['u'] = print_u, ['x'] = print_x, ['X'] = print_x, ['f'] = print_f,
 
 	va_start(ap, format);
 	while(*format)
 	{
 		if (*format == '%')
 		{
-			format++;
-			spec = parser(&format, &opt);
-			handler[spec](ap, &opt);
+			erase_opt(&opt);
+			if (*(format + 1) == '%')
+			{
+				write(1, "%", 1);
+				format++;
+			}
+			else
+			{
+				parser(&format, &opt);
+				print_opt(&opt);
+				handler[opt.spec](ap, &opt);
+			}
 		}
 		else
 			write(1, format, 1);
