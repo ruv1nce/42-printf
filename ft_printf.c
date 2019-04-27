@@ -8,6 +8,7 @@ void	erase_opt(t_options *opt)
 	opt->pos = 0;
 	opt->hash = 0;
 	opt->len = 0;
+	opt->apo = 0;
 	opt->spec = 0;
 }
 
@@ -19,6 +20,7 @@ void	print_opt(t_options *opt)
 	printf("pos  %i\n", opt->pos);
 	printf("hash %i\n", opt->hash);
 	printf("len  %i\n", opt->len);
+	printf("apo  %i\n", opt->apo);
 	printf("spec %i\n", opt->spec);
 	printf("\n");
 }
@@ -28,7 +30,7 @@ int		ft_printf(char *format, ...)
 	va_list			ap;
 	t_options		opt;
 	const handlers handler[121] = {['c'] = print_c};
-	//, ['s'] = print_s, ['i'] = print_i, ['o'] = print_o, ['u'] = print_u, ['x'] = print_x, ['X'] = print_x, ['f'] = print_f,
+	//, ['s'] = print_s, ['i'] = print_i, ['o'] = print_o, ['u'] = print_u, ['x'] = print_x, ['X'] = print_x, ['f'] = print_f, ['e'] = print_f, ['g'] = print_f
 
 	va_start(ap, format);
 	while(*format)
@@ -43,8 +45,8 @@ int		ft_printf(char *format, ...)
 			}
 			else
 			{
-				parser(&format, &opt);
-				print_opt(&opt);
+				parser(&format, &opt, ap);
+				// print_opt(&opt);
 				handler[opt.spec](ap, &opt);
 			}
 		}
