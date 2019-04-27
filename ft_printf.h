@@ -10,6 +10,7 @@
 # define NUM(x) x >= '0' && x <= '9'
 # define LEN(x) x == 'h' || x == 'l' || x == 'L'
 # define SPEC(x) x == 'c' || x =='s' || x == 'd' || x == 'i' || x == 'o' || x == 'u' || x == 'x' || x == 'X' || x == 'f' || x == 'p'
+# define DECIMAL(x) x == 'd' || x == 'i' || x == 'u' || x == 'f' || x == 'e' || x == 'g'
 
 /*
 ** VALID OPTIONS VALUES:
@@ -18,9 +19,10 @@
 ** prec: 0 <> n;
 ** pos: 1 - '+', 2 - <space>;
 ** hash: 1 - true;
-** length: 1 - hh, 2 - h, 3 - l, 4 - ll, 5 - L;
+** len: 1 - hh, 2 - h, 3 - l, 4 - ll, 5 - L;
 ** apo: 1 - true;
 ** spec: csiouxXfp;
+** base: 10, 8, 16, 2;
 */
 
 typedef struct s_options
@@ -33,6 +35,7 @@ typedef struct s_options
 	int				len;
 	unsigned char	apo;
 	unsigned char	spec;
+	int				base;
 }					t_options;
 
 typedef void (*handlers)(va_list, t_options *);

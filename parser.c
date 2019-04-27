@@ -69,6 +69,18 @@ static void	save_len(char **format, t_options *opt)
 		opt->len = 5;
 }
 
+static void	save_base(unsigned char spec, t_options *opt)
+{
+	if (DECIMAL(spec))
+		opt->base = 10;
+	else if (spec == 'o')
+		opt->base = 8;
+	else if (spec == 'x' || spec == 'X' || spec == 'p')
+		opt->base = 16;
+	else if (spec == 'b')
+		opt->base = 2;
+}
+
 void		parser(char **format, t_options *opt, va_list ap)
 {
 	while (**format)
@@ -83,6 +95,7 @@ void		parser(char **format, t_options *opt, va_list ap)
 		else if (SPEC(**format))
 		{
 			opt->spec = **format;
+			save_base(opt->spec, opt);
 			break ;
 		}
 	}

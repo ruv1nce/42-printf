@@ -10,6 +10,7 @@ void	erase_opt(t_options *opt)
 	opt->len = 0;
 	opt->apo = 0;
 	opt->spec = 0;
+	opt->base = 0;
 }
 
 void	print_opt(t_options *opt)
@@ -29,8 +30,8 @@ int		ft_printf(char *format, ...)
 {
 	va_list			ap;
 	t_options		opt;
-	const handlers handler[121] = {['c'] = print_c, ['s'] = print_s};
-	// ['i'] = print_i, ['o'] = print_o, ['u'] = print_u, ['x'] = print_x, ['X'] = print_x, ['f'] = print_f, ['e'] = print_f, ['g'] = print_f
+	const handlers handler[121] = {['c'] = print_c, ['s'] = print_s, ['i'] = print_i};
+	//['o'] = print_o, ['u'] = print_u, ['x'] = print_x, ['X'] = print_x, ['f'] = print_f, ['e'] = print_f, ['g'] = print_f
 
 	va_start(ap, format);
 	while(*format)

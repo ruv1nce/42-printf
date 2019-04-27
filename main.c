@@ -10,44 +10,74 @@ int	main(void)
 	long long l;
 	unsigned long long ul;
 	double	d;
-	char	*s = "fuck";
+	//char	*s = "fuck";
 
 	i = 75;
 	nonprint = 15;
-	j = -75000000;
+	j = -75;
 	k = 500111222;
 	u = 88997766;
 	l = 9223372036854775807;
 	ul = 18446744073709551615ULL;
 	d = 15.69;
 
-	/* string option */
-	ft_printf("%s\n", s);
-	ft_printf("%10s\n", s);
-	ft_printf("%-10s\n", s);
-	ft_printf("%.2s\n", s);
-	ft_printf("%10.2s\n", s);
-	ft_printf("%-10.2s\n", s);
+	/* int options */
+	ft_printf("ft %i\n", i);
+	ft_printf("ft %0i\n", i);
+	ft_printf("ft %9i\n", i);
+	ft_printf("ft %09i\n", i);
+	ft_printf("ft %-9i\n", i);
+		// ft_printf("%+i\n", i);
+		// ft_printf("% i\n", i);
+		// ft_printf("%.8i\n", i);
+		// ft_printf("%7.8i\n", i);
 	ft_printf("\n");
-	printf("%s\n", s);
-	printf("%10s\n", s);
-	printf("%-10s\n", s);
-	printf("%.2s\n", s);
-	printf("%10.2s\n", s);
-	printf("%-10.2s\n", s);
+	printf("lc %i\n", i);
+	printf("lc %0i\n", i);
+	printf("lc %9i\n", i);
+	printf("lc %09i\n", i);
+	printf("lc %-9i\n", i);
+		// printf("%+i\n", i);
+		// printf("% i\n", i);
+		// printf("%.8i\n", i);
+		// printf("%7.8i\n", i);
+	printf("\n");
+	ft_printf("ft %i\n", j);
+	ft_printf("ft %0i\n", j);
+	ft_printf("ft %9i\n", j);
+	ft_printf("ft %09i\n", j);
+	ft_printf("ft %-9i\n", j);
+	ft_printf("\n");
+		// ft_printf("%+i\n", j);
+		// ft_printf("% i\n", j);
+		// ft_printf("%.8i\n", j);
+		// ft_printf("%7.8i\n", j);
+	printf("lc %i\n", j);
+	printf("lc %0i\n", j);
+	printf("lc %9i\n", j);
+	printf("lc %09i\n", j);
+	printf("lc %-9i\n", j);
+		// printf("%+i\n", j);
+		// printf("% i\n", j);
+		// printf("%.8i\n", j);
+		// printf("%7.8i\n", j);
 
+	// printf("%lu\n", 125L);
 
-	// printf("--simple stuff--\n");
-	// printf("text\n");
-	// printf("%c\n", 'Z');
-	// printf("%c\n", i);
-
-	// ft_printf("dude %% %c dude %c\n", '$', i);
-	// ft_printf("%#0+5.5hhc\n", i);
-	// ft_printf("%- 8.7hc\n", i);
-	// ft_printf("%0.llc\n", i);
-	// ft_printf("%lc\n", i);
-	// ft_printf("%Lc\n", i);
+	/* string options */
+	// ft_printf("%s\n", s);
+	// ft_printf("%10s\n", s);
+	// ft_printf("%-10s\n", s);
+	// ft_printf("%.2s\n", s);
+	// ft_printf("%10.2s\n", s);
+	// ft_printf("%-10.2s\n", s);
+	// ft_printf("\n");
+	// printf("%s\n", s);
+	// printf("%10s\n", s);
+	// printf("%-10s\n", s);
+	// printf("%.2s\n", s);
+	// printf("%10.2s\n", s);
+	// printf("%-10.2s\n", s);
 
 	/* char options */
 	// ft_printf("%c\n", i);
@@ -61,29 +91,6 @@ int	main(void)
 	// printf("%10c\n", i);
 	// printf("%-9c\n", i);
 	// printf("%lc\n", i);
-
-	/* int options */
-	// printf("%i\n", i);
-	// printf("%0i\n", i);
-	// printf("apo %'09i\n", i);
-	// printf("%9i\n", i);
-	// printf("%-9i\n", i);
-	// printf("%+i\n", i);
-	// printf("% i\n", i);
-	// printf("%.8i\n", i);
-	// printf("%7.8i\n", i);
-
-	// printf("%'i\n", j);
-	// printf("%0i\n", j);
-	// printf("%09i\n", j);
-	// printf("%9i\n", j);
-	// printf("%-9i\n", j);
-	// printf("%+i\n", j);
-	// printf("% i\n", j);
-	// printf("%.8i\n", j);
-	// printf("%7.8i\n", j);
-
-	// printf("%lu\n", 125L);
 
 	/* float options */
 	// printf("%f\n", d);

@@ -90,6 +90,9 @@ char	*ft_rotx(char *s, int x);
 void	ft_bchar(void *s, char c, size_t n);
 int		ft_sqrt(int x, int mode);
 int		ft_binsearch(int *arr, int num, int size);
+int		ft_numlen(unsigned long long num, int base);
+char	*ft_itoa_base(long long value, int base, int mode);
+char	*ft_itoa_base_u(unsigned long long value, int base, int mode);
 
 int		ft_gnl(const int fd, char **line);
 int		ft_gnl_fd(const int fd, char **line);
