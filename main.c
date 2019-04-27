@@ -10,7 +10,7 @@ int	main(void)
 	long long l;
 	unsigned long long ul;
 	double	d;
-	// char	*s = "fuckfuck";
+	char	*s = "fuck";
 
 	i = 75;
 	nonprint = 15;
@@ -20,6 +20,23 @@ int	main(void)
 	l = 9223372036854775807;
 	ul = 18446744073709551615ULL;
 	d = 15.69;
+
+	/* string option */
+	ft_printf("%s\n", s);
+	ft_printf("%10s\n", s);
+	ft_printf("%-10s\n", s);
+	ft_printf("%.2s\n", s);
+	ft_printf("%10.2s\n", s);
+	ft_printf("%-10.2s\n", s);
+	ft_printf("\n");
+	printf("%s\n", s);
+	printf("%10s\n", s);
+	printf("%-10s\n", s);
+	printf("%.2s\n", s);
+	printf("%10.2s\n", s);
+	printf("%-10.2s\n", s);
+
+
 	// printf("--simple stuff--\n");
 	// printf("text\n");
 	// printf("%c\n", 'Z');
@@ -33,19 +50,17 @@ int	main(void)
 	// ft_printf("%Lc\n", i);
 
 	/* char options */
-	ft_printf("%c\n", i);
-	ft_printf("%10c\n", nonprint);
-	ft_printf("%10c\n", i);
-	ft_printf("%-9c\n", i);
-	ft_printf("%lc\n", i);
-	ft_printf("\n");
-	printf("%c\n", i);
-	printf("%10c\n", nonprint);
-	printf("%10c\n", i);
-	printf("%-9c\n", i);
-	printf("%lc\n", i);
-
-	// printf("\n\n\n\n\n")
+	// ft_printf("%c\n", i);
+	// ft_printf("%10c\n", nonprint);
+	// ft_printf("%10c\n", i);
+	// ft_printf("%-9c\n", i);
+	// ft_printf("%lc\n", i);
+	// ft_printf("\n");
+	// printf("%c\n", i);
+	// printf("%10c\n", nonprint);
+	// printf("%10c\n", i);
+	// printf("%-9c\n", i);
+	// printf("%lc\n", i);
 
 	/* int options */
 	// printf("%i\n", i);
