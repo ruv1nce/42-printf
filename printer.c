@@ -35,6 +35,12 @@ void	print_i(char *s, t_options *opt)
 
 	len = ft_strlen(s);
 	prelen = 0;
+	if (opt->hash && (opt->spec == 'o'))
+	{
+		opt->width--;
+		if (opt->prec > 0)
+			opt->prec--;
+	}
 	if (opt->sign && (opt->spec == 'i' || opt->spec == 'd'))
 		opt->width--;
 	if (opt->prec > len)
@@ -47,6 +53,8 @@ void	print_i(char *s, t_options *opt)
 		write(1, " ", 1);
 	if (opt->sign && (opt->spec == 'i' || opt->spec == 'd'))
 		write(1, &opt->sign, 1);
+	if (opt->hash && (opt->spec == 'o'))
+		write(1, "0", 1);
 	while (--prelen >= 0)
 		write(1, "0", 1);
 	write(1, s, len);

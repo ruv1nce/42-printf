@@ -35,7 +35,7 @@ int		ft_printf(char *format, ...)
 	t_options		opt;
 	const makers	maker[121] = {['i'] = make_i, ['u'] = make_u, ['o'] = make_u, ['x'] = make_u, ['X'] = make_u, ['c'] = make_s, ['s'] = make_s, ['%'] = make_s};
 	char			*str;
-	const printers	printer[121] = {['c'] = print_s, ['s'] = print_s, ['%'] = print_s, ['i'] = print_i, ['u'] = print_i};
+	const printers	printer[121] = {['c'] = print_s, ['s'] = print_s, ['%'] = print_s, ['i'] = print_i, ['u'] = print_i, ['o'] = print_i};
 	// ['o'] = print_o,  ['x'] = print_x, ['X'] = print_x, ['f'] = print_f, ['e'] = print_f, ['g'] = print_f
 
 	va_start(ap, format);

@@ -33,15 +33,15 @@ static void	save_widthprec(char **format, t_options *opt, va_list ap)
 	if (**format == '.')
 	{
 		opt->prec = 0;
-		(*format)++;
-		if (NUM(**format))
+		if (NUM(*(*format) + 1))
 		{
+			(*format)++;
 			opt->prec = ft_atoi(*format);
 			while (NUM(**format))
 				(*format)++;
 			(*format)--;
 		}
-		else if (**format == '*')
+		else if (*(++(*format)) == '*')
 			opt->prec = va_arg(ap, int);
 	}
 }

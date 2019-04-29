@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
+/*   Updated: 2019/04/29 02:53:49 by dfonarev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	main(void)
@@ -16,11 +28,11 @@ int	main(void)
 	// char	*s = "fucko";
 
 	boo = 75;
-	prec = 25;
+	prec = 5;
 	nonprint = 15;
 	j = -75;
 	k = 500111222;
-	i = 4123123123;
+	i = 75;
 	l = -5123123123;
 	ul = 5123123123;
 	ll = -9223372036854775807;
@@ -48,61 +60,67 @@ int	main(void)
 	// printf("\n");
 
 	/* int options */
-	// ft_printf("ft %i\n", i);
-	// ft_printf("ft %9i\n", i);
-	// ft_printf("ft %09i\n", i);
-	// ft_printf("ft %-9i\n", i);
-	// ft_printf("ft %-09i\n", i); // 0 is ignored
-	// ft_printf("ft %+i\n", i);
-	// ft_printf("ft % i\n", i);
-	// ft_printf("ft % +i\n", i); // ' ' is ignored
-	// ft_printf("ft % 9i\n", i);
-	// ft_printf("ft % -9i\n", i);
-	// ft_printf("ft % 09i\n", i);
-	ft_printf("ft %.*u\n", prec, i);
-	ft_printf("ft %37.*u\n", prec, i);
-	ft_printf("ft %037.*u\n", prec, i);
-	ft_printf("ft %-39.*u\n", prec, i);
-	ft_printf("ft %-039.*u\n", prec, i); // 0 is ignored
-	ft_printf("ft %+.*u\n", prec, i);
-	ft_printf("ft % .*u\n", prec, i);
-	ft_printf("ft % +.*u\n", prec, i); // ' ' is ignored
-	ft_printf("ft % 39.*u\n", prec, i);
-	ft_printf("ft % -39.*u\n", prec, i);
-	ft_printf("ft % 039.*u\n", prec, i);
+	// ft_printf("ft %o\n", i);
+	// ft_printf("ft %9o\n", i);
+	// ft_printf("ft %09o\n", i);
+	// ft_printf("ft %-9o\n", i);
+	// ft_printf("ft %-09o\n", i); // 0 is ignored
+	// ft_printf("ft %+o\n", i);
+	// ft_printf("ft % o\n", i);
+	// ft_printf("ft % +o\n", i); // ' ' is ignored
+	// ft_printf("ft % 9o\n", i);
+	// ft_printf("ft % -9o\n", i);
+	// ft_printf("ft % 09o\n", i);
+	// ft_printf("ft %.*o\n", prec, i);
+	// ft_printf("ft %37.*o\n", prec, i);
+	// ft_printf("ft %037.*o\n", prec, i);
+	// ft_printf("ft %-39.*o\n", prec, i);
+	// ft_printf("ft %-039.*o\n", prec, i); // 0 is ignored
+	// ft_printf("ft %+.*o\n", prec, i);
+	// ft_printf("ft % .*o\n", prec, i);
+	// ft_printf("ft % +.*o\n", prec, i); // ' ' is ignored
+	// ft_printf("ft % 39.*o\n", prec, i);
+	// ft_printf("ft % -39.*o\n", prec, i);
+	// ft_printf("ft % 039.*o\n", prec, i);
+	int r = 0;
+	// ft_printf("%2i ft %o\n", ++r, i);
+	// ft_printf("%2i ft %#o\n", ++r, i);
+	// ft_printf("%2i ft %9o\n", ++r, i);
+	// ft_printf("%2i ft %#9o\n", ++r, i);
+	// ft_printf("%2i ft %09o\n", ++r, i);
+	// ft_printf("%2i ft %#09o\n", ++r, i);
+	// ft_printf("%2i ft %-9o\n", ++r, i);
+	// ft_printf("%2i ft %#-9o\n", ++r, i);
+	// ft_printf("%2i ft %.o\n", ++r, i);
+	// ft_printf("%2i ft %#.o\n", ++r, i);
+	ft_printf("%2i ft %.*o\n", ++r, prec, i);
+	ft_printf("%2i ft %#.*o\n", ++r, prec, i);
+	ft_printf("%2i ft %9.*o\n", ++r, prec, i);
+	ft_printf("%2i ft %#9.*o\n", ++r, prec, i);
+	ft_printf("%2i ft %09.*o\n", ++r, prec, i);
+	ft_printf("%2i ft %#09.*o\n", ++r, prec, i);
+	ft_printf("%2i ft %-9.*o\n", ++r, prec, i);
+	ft_printf("%2i ft %#-9.*o\n", ++r, prec, i);
 	ft_printf("\n");
-	// printf("lc %i\n", i);
-	// printf("lc %9i\n", i);
-	// printf("lc %09i\n", i);
-	// printf("lc %-9i\n", i);
-	// printf("lc %-9i\n", i);
-	// printf("lc %+i\n", i);
-	// printf("lc % i\n", i);
-	// printf("lc %+i\n", i);
-	// printf("lc % 9i\n", i);
-	// printf("lc % -9i\n", i);
-	// printf("lc % 09i\n", i);
-	printf("lc %.*u\n", prec, i);
-	printf("lc %37.*u\n", prec, i);
-	printf("lc %037.*u\n", prec, i);
-	printf("lc %-39.*u\n", prec, i);
-	printf("lc %-39.*u\n", prec, i);
-
-	// printf("lc %+.*u\n", prec, i);
-	printf("lc %.*u\n", prec, i);
-
-	// printf("lc % .*u\n", prec, i);
-	printf("lc %.*u\n", prec, i);
-
-	// printf("lc %+.*u\n", prec, i);
-	printf("lc %.*u\n", prec, i);
-
-	// printf("lc % 39.*u\n", prec, i);
-	// printf("lc % -39.*u\n", prec, i);
-	// printf("lc % 039.*u\n", prec, i);
-	printf("lc %39.*u\n", prec, i);
-	printf("lc %-39.*u\n", prec, i);
-	printf("lc %039.*u\n", prec, i);
+	r = 0;
+	// printf("%2i lc %o\n", ++r, i);
+	// printf("%2i lc %#o\n", ++r, i);
+	// printf("%2i lc %9o\n", ++r, i);
+	// printf("%2i lc %#9o\n", ++r, i);
+	// printf("%2i lc %09o\n", ++r, i);
+	// printf("%2i lc %#09o\n", ++r, i);
+	// printf("%2i lc %-9o\n", ++r, i);
+	// printf("%2i lc %#-9o\n", ++r, i);
+	// printf("%2i lc %.o\n", ++r, i);
+	// printf("%2i lc %#.o\n", ++r, i);
+	printf("%2i lc %.*o\n", ++r, prec, i);
+	printf("%2i lc %#.*o\n", ++r, prec, i);
+	printf("%2i lc %9.*o\n", ++r, prec, i);
+	printf("%2i lc %#9.*o\n", ++r, prec, i);
+	printf("%2i lc %09.*o\n", ++r, prec, i);
+	printf("%2i lc %#09.*o\n", ++r, prec, i);
+	printf("%2i lc %-9.*o\n", ++r, prec, i);
+	printf("%2i lc %#-9.*o\n", ++r, prec, i);
 
 
 	// printf("\n");

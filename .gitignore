@@ -1,6 +1,7 @@
 settings.json
 .vscode/
 test
+libft/
 # Prerequisites
 *.d
 
