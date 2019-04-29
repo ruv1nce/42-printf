@@ -4,7 +4,7 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
-# include "libft.h"
+# include "libft/libft.h"
 
 # define FLAG(x) x == '#' || x == '0' || x == '-' || x == '+' || x == ' ' || x == '\''
 # define NUM(x) x >= '0' && x <= '9'
