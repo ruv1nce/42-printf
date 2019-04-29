@@ -4,14 +4,17 @@ static void	save_flag(char **format, t_options *opt)
 {
 	if (**format == '#')
 		opt->hash = 1;
-	else if (**format == '0' && !opt->pad)
-		opt->pad = 1;
+	else if (**format == '0' && !opt->right)
+		opt->pad = '0';
 	else if (**format == '-')
-		opt->pad = 2;
+	{
+		opt->right = 1;
+		opt->pad = ' ';
+	}
 	else if (**format == '+')
-		opt->pos = 1;
-	else if (**format == ' ' && !opt->pos)
-		opt->pos = 2;
+		opt->sign = '+';
+	else if (**format == ' ' && !opt->sign)
+		opt->sign = ' ';
 	else if (**format == '\'')
 		opt->apo = 1;
 }
