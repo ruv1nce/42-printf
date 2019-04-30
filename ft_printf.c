@@ -39,7 +39,7 @@ void		iterator(char *format, t_options *opt, va_list ap)
 	init_func_ptrs(maker, printer);
 	while (*format)
 	{
-		if (*format == '%')
+		if (*format == '%' &&  *(format + 1))
 		{
 			erase_opt(opt);
 			parser(&format, opt, ap);

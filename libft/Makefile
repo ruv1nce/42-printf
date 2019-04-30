@@ -1,7 +1,7 @@
 NAME = libft.a
 
-SRCS = ft_atoi.c ft_itoa_base_u.c ft_strdup.c ft_strlen.c ft_strnew.c \
-                   ft_memalloc.c ft_numlen.c ft_bzero.c ft_strjoin.c
+SRCS = ft_atoi.c ft_itoa_base_u.c ft_strdup.c ft_strlen.c ft_strnew.c ft_pow.c \
+                   ft_memalloc.c ft_numlen.c ft_bzero.c ft_strjoin.c ft_strchr.c
 
 OBJS = $(SRCS:.c=.o)
 

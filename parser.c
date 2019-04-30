@@ -87,9 +87,8 @@ static void	save_base(unsigned char spec, t_options *opt)
 
 void		parser(char **format, t_options *opt, va_list ap)
 {
-	while (**format)
+	while (*(++*format))
 	{
-		(*format)++;
 		if (FLAG(**format))
 			save_flag(format, opt);
 		else if ((NUM(**format)) || **format == '.' || **format == '*')
