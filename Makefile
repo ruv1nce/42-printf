@@ -3,9 +3,9 @@ FLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 LIBDIR = ./libft/
 SRC = ft_printf.c parser.c make_string.c printer.c
-LIBFILES = ft_atoi.c ft_itoa_base_u.c ft_strdup.c ft_strlen.c ft_strnew.c ft_memalloc.c \
-		   ft_numlen.c ft_bzero.c
-LIBSRC = $(patsubst %, $(LIBDIR)%, $(LIBFILES)) 
+LIBFILES = ft_atoi.c ft_itoa_base_u.c ft_strdup.c ft_strlen.c ft_strnew.c \
+		   ft_memalloc.c ft_numlen.c ft_bzero.c ft_strjoin.c
+LIBSRC = $(patsubst %, $(LIBDIR)%, $(LIBFILES))
 OBJ = $(SRC:.c=.o)
 LIBOBJ = $(LIBSRC:.c=.o)
 INC = ft_printf.h libft/libft.h
@@ -16,8 +16,8 @@ all: $(NAME)
 
 $(NAME): lib
 	$(CC) $(FLAGS) -c $(SRC)
-	ar rc $(NAME) $(OBJ) $(LIBOBJ) 
-	ranlib $(NAME)	
+	ar rc $(NAME) $(OBJ) $(LIBOBJ)
+	ranlib $(NAME)
 
 lib:
 	$(MAKE) -C ./libft/

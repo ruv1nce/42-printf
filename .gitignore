@@ -1,7 +1,6 @@
 settings.json
 .vscode/
 test
-libft/
 # Prerequisites
 *.d
 
@@ -54,3 +53,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+testing/
