@@ -24,6 +24,7 @@
 ** spec: csiouxXfp%;
 ** base: 10, 8, 16, 2;
 ** sign: '+', '-';
+** cnt: symbols printed (0 > n);
 */
 
 typedef struct s_options
@@ -37,13 +38,15 @@ typedef struct s_options
 	unsigned char	apo;
 	unsigned char	spec;
 	unsigned char	base;
-	unsigned char	sign;
+	char			sign;
+	unsigned int	cnt;
 }					t_options;
 
 typedef char	*(*makers)(va_list, t_options *);
 typedef void	(*printers)(char *, t_options *);
 
 int		ft_printf(char *format, ...);
+void	writer(char *s, int i, t_options *opt);
 void	parser(char **format, t_options *opt, va_list ap);
 char	*make_i(va_list ap, t_options *opt);
 char	*make_u(va_list ap, t_options *opt);

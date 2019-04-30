@@ -14,6 +14,12 @@ void	erase_opt(t_options *opt)
 	opt->sign = 0;
 }
 
+void	writer(char *s, int i, t_options *opt)
+{
+	opt->cnt += i;
+	write(1, s, i);
+}
+
 void	print_opt(t_options *opt)
 {
 	printf("width %i\n", opt->width);
@@ -38,6 +44,7 @@ int		ft_printf(char *format, ...)
 	const printers	printer[121] = {['c'] = print_s, ['s'] = print_s, ['%'] = print_s, ['i'] = print_i, ['d'] = print_i, ['u'] = print_i, ['o'] = print_i};
 	// ['o'] = print_o,  ['x'] = print_x, ['X'] = print_x, ['f'] = print_f, ['e'] = print_f, ['g'] = print_f
 
+	opt.cnt = 0;
 	va_start(ap, format);
 	while(*format)
 	{
@@ -46,16 +53,20 @@ int		ft_printf(char *format, ...)
 			erase_opt(&opt);
 			parser(&format, &opt, ap);
 			// print_opt(&opt);
-			if (!(str = maker[opt.spec](ap, &opt)))
-				return (0);
+			if ((str = maker[opt.spec](ap, &opt)))
+			{
 			// printf("string: %s\n", str);
-			printer[opt.spec](str, &opt);
-			free(str);
+				printer[opt.spec](str, &opt);
+				free(str);
+			}
 		}
 		else
+		{
 			write(1, format, 1);
+			opt.cnt++;
+		}
 		format++;
 	}
 	va_end(ap);
-	return (1);
+	return (opt.cnt);
 }

@@ -10,7 +10,16 @@ char	*make_s(va_list ap, t_options *opt)
 	char	*s;
 
 	if (opt->spec == 's')
-		return (ft_strdup(va_arg(ap, char *)));
+	{
+		s = va_arg(ap, char *);
+		if (!s)
+		{
+			writer("(null)", 6, opt);
+			return (NULL);
+		}
+		else
+			return (ft_strdup(s));
+	}
 	else
 	{
 		if (!(s = ft_strnew(1)))
@@ -18,7 +27,7 @@ char	*make_s(va_list ap, t_options *opt)
 		if (opt->spec == '%')
 			s[0] = '%';
 		else
-			s[0] = (char)va_arg(ap, int);
+			s[0] = va_arg(ap, int);
 	}
 	return (s);
 }
