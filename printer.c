@@ -31,13 +31,7 @@ static void	process_i_options(t_options *opt, int *len, int *prelen)
 			opt->prec--;
 	}
 	else if (opt->hash && (opt->spec == 'x' || opt->spec == 'X' || opt->spec == 'p'))
-	{
 		opt->width -= 2;
-		// if (opt->prec > 2)
-			// opt->prec -= 2;
-		// else
-			// opt->prec = 0;
-	}
 	if (opt->sign && (opt->spec == 'i' || opt->spec == 'd'))
 		opt->width--;
 	if (opt->prec > *len)

@@ -21,7 +21,6 @@ void	pointer_opt(t_options *opt)
 	opt->hash = 1;
 	opt->len = 3;
 	opt->apo = 0;
-	// opt->spec = 'x';
 	opt->base = 16;
 	opt->sign = 0;
 }
@@ -39,4 +38,33 @@ void	print_opt(t_options *opt)//
 	printf("base %i\n", opt->base);
 	printf("sign %c\n", opt->sign);
 	printf("\n");
+}
+
+int		validator(char *format)
+{
+	char	*tmp;
+	int		spec_found;
+
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			tmp = ++format;
+			spec_found = 0;
+			while (*tmp)
+			{
+				if (SPEC(*tmp))
+				{
+					spec_found = 1;
+					format = tmp + 1;
+					break ;
+				}
+				tmp++;
+			}
+			if (!spec_found)
+				return (0);
+		}
+		format++;
+	}
+	return (1);
 }

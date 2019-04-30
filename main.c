@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/04/30 15:36:34 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/04/30 16:06:52 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(void)
 	ft_printf("ft %-5%\n");
 	ft_printf("ft %05%\n");
 	ft_printf("ft %-05%\n");
-	printf("\n");
+	// printf("\n");
 	// printf("%5.4s\n",s);
 	// printf("%s\n", ss);
 	// printf("%5c\n", i);
@@ -106,14 +106,15 @@ int	main(void)
 	// ft_printf("ft % -39.*i\n", prec, i);
 	// ft_printf("ft % 039.*i\n", prec, i);
 
-	/* octal options */
-	// int r = 0;
 	/* zero precision */
+	// ft_printf("ft %.0i\n", 0);
 	// ft_printf("ft %.0o\n", 5);
 	// ft_printf("ft %.0o\n", 0);
 	// ft_printf("ft %.0x\n", 0);
 	// ft_printf("ft %x\n", 0);
 
+	/* octal options */
+	// int r = 0;
 	// ft_printf("%2i ft %o\n", ++r, u);
 	// ft_printf("%2i ft %#o\n", ++r, u);
 	// ft_printf("%2i ft %9o\n", ++r, u);
@@ -133,12 +134,13 @@ int	main(void)
 	// ft_printf("%2i ft %-9.*o\n", ++r, prec, u);
 	// ft_printf("%2i ft %#-9.*o\n", ++r, prec, u);
 	// ft_printf("\n");
+
 	/* zero precision */
-	// ft_printf("ft %.0i\n", 0);
 	// printf("lc %.0i\n", 0);
 	// printf("lc %.0o\n", 5);
 	// printf("lc %.0o\n", 0);
 	// printf("lc %.0x\n", 0);
+	// printf("lc %x\n", 0);
 	// printf("lc %x\n", 0);
 
 	// r = 0;

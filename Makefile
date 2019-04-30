@@ -2,7 +2,7 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 LIBDIR = ./libft/
-SRC = ft_printf.c parser.c make_string.c printer.c support.c validator.c
+SRC = ft_printf.c parser.c make_string.c printer.c support.c 
 LIBFILES = ft_atoi.c ft_itoa_base_u.c ft_strdup.c ft_strlen.c ft_strnew.c \
 		   ft_pow.c ft_memalloc.c ft_numlen.c ft_bzero.c ft_strjoin.c \
 		   ft_strchr.c ft_strcpy.c

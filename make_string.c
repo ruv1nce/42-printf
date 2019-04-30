@@ -5,7 +5,7 @@
 ** like any other string created here
 */
 
-char	*make_s(va_list ap, t_options *opt)
+char		*make_s(va_list ap, t_options *opt)
 {
 	char	*s;
 
@@ -33,10 +33,9 @@ char	*make_s(va_list ap, t_options *opt)
 	return (s);
 }
 
-char	*make_u(va_list ap, t_options *opt)
+char		*make_u(va_list ap, t_options *opt)
 {
 	unsigned long long	num;
-	char				*str;
 
 	if (opt->len == 1)
 		num = (unsigned char)va_arg(ap, unsigned int);
@@ -53,11 +52,7 @@ char	*make_u(va_list ap, t_options *opt)
 		if (opt->spec != 'o' || opt->prec == -1)
 			opt->hash = 0;
 		if (!opt->prec)
-		{
-			str = malloc(1);
-			str[0] = 0;
-			return (str);
-		}
+			return (ft_strnew(0));
 	}
 	if (opt->spec == 'X')
 		return (ft_itoa_base_u(num, opt->base, 1));
@@ -65,10 +60,9 @@ char	*make_u(va_list ap, t_options *opt)
 		return (ft_itoa_base_u(num, opt->base, 0));
 }
 
-char	*make_i(va_list ap, t_options *opt)
+char		*make_i(va_list ap, t_options *opt)
 {
 	long long	num;
-	char		*str;
 
 	if (opt->len == 1)
 		num = (char)va_arg(ap, int);
@@ -81,11 +75,7 @@ char	*make_i(va_list ap, t_options *opt)
 	else
 		num = va_arg(ap, int);
 	if (!num && !opt->prec)
-	{
-		str = malloc(1);
-		str[0] = 0;
-		return (str);
-	}
+		return (ft_strnew(0));
 	if (num < 0)
 	{
 		opt->sign = '-';

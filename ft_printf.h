@@ -24,7 +24,7 @@
 ** spec: csiouxXfp%;
 ** base: 10, 8, 16, 2;
 ** sign: '+', '-';
-** cnt: symbols printed (0 > n);
+** cnt: symbols printed (0 <> n);
 */
 
 typedef struct s_options
