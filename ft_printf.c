@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void	erase_opt(t_options *opt)
+static void	erase_opt(t_options *opt)
 {
 	opt->width = 0;
 	opt->prec = -1;
@@ -14,13 +14,25 @@ void	erase_opt(t_options *opt)
 	opt->sign = 0;
 }
 
-void	writer(char *s, int i, t_options *opt)
+void		pointer_opt(t_options *opt)
+{
+	opt->prec = -1;
+	opt->pad = ' ';
+	opt->hash = 1;
+	opt->len = 3;
+	opt->apo = 0;
+	opt->spec = 'x';
+	opt->base = 16;
+	opt->sign = 0;
+}
+
+void		writer(char *s, int i, t_options *opt)
 {
 	opt->cnt += i;
 	write(1, s, i);
 }
 
-void	print_opt(t_options *opt)
+void		print_opt(t_options *opt)
 {
 	printf("width %i\n", opt->width);
 	printf("prec %i\n", opt->prec);
@@ -35,18 +47,17 @@ void	print_opt(t_options *opt)
 	printf("\n");
 }
 
-int		ft_printf(char *format, ...)
+int			ft_printf(char *format, ...)
 {
 	va_list			ap;
 	t_options		opt;
-	const makers	maker[121] = {['i'] = make_i, ['d'] = make_i, ['u'] = make_u, ['o'] = make_u, ['x'] = make_u, ['X'] = make_u, ['c'] = make_s, ['s'] = make_s, ['%'] = make_s};
 	char			*str;
-	const printers	printer[121] = {['c'] = print_s, ['s'] = print_s, ['%'] = print_s, ['i'] = print_i, ['d'] = print_i, ['u'] = print_i, ['o'] = print_i};
-	// ['o'] = print_o,  ['x'] = print_x, ['X'] = print_x, ['f'] = print_f, ['e'] = print_f, ['g'] = print_f
+	const makers	maker[121] = {['i'] = make_i, ['d'] = make_i, ['u'] = make_u, ['o'] = make_u, ['x'] = make_u, ['X'] = make_u, ['p'] = make_u, ['c'] = make_s, ['s'] = make_s, ['%'] = make_s};
+	const printers	printer[121] = {['c'] = print_s, ['s'] = print_s, ['%'] = print_s, ['i'] = print_i, ['d'] = print_i, ['u'] = print_i, ['o'] = print_i, ['x'] = print_i, ['X'] = print_i, ['p'] = print_i};
 
 	opt.cnt = 0;
 	va_start(ap, format);
-	while(*format)
+	while (*format)
 	{
 		if (*format == '%')
 		{
@@ -61,10 +72,7 @@ int		ft_printf(char *format, ...)
 			}
 		}
 		else
-		{
-			write(1, format, 1);
-			opt.cnt++;
-		}
+			writer(format, 1, &opt);
 		format++;
 	}
 	va_end(ap);

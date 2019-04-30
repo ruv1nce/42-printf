@@ -24,9 +24,8 @@ static void	save_widthprec(char **format, t_options *opt, va_list ap)
 	if (NUM(**format))
 	{
 		opt->width = ft_atoi(*format);
-		while (NUM(**format))
+		while (NUM(**format) && NUM(*(*format + 1)))
 			(*format)++;
-		(*format)--;
 	}
 	else if (**format == '*')
 		opt->width = va_arg(ap, int);
@@ -37,9 +36,8 @@ static void	save_widthprec(char **format, t_options *opt, va_list ap)
 		{
 			(*format)++;
 			opt->prec = ft_atoi(*format);
-			while (NUM(**format))
+			while (NUM(**format) && NUM(*(*format + 1)))
 				(*format)++;
-			(*format)--;
 		}
 		else if (*(*format + 1) == '*')
 		{
@@ -101,6 +99,8 @@ void		parser(char **format, t_options *opt, va_list ap)
 		else if (SPEC(**format))
 		{
 			opt->spec = **format;
+			if (opt->spec == 'p')
+				pointer_opt(opt);
 			save_base(opt->spec, opt);
 			break ;
 		}
