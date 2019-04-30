@@ -48,9 +48,10 @@ char	*make_u(va_list ap, t_options *opt)
 		num = va_arg(ap, unsigned long long);
 	else
 		num = va_arg(ap, unsigned int);
-	if (!num)
+	if (!num && opt->spec != 'p')
 	{
-		opt->hash = 0;
+		if (opt->spec != 'o' || opt->prec == -1)
+			opt->hash = 0;
 		if (!opt->prec)
 		{
 			str = malloc(1);

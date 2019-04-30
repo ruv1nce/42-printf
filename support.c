@@ -21,7 +21,7 @@ void	pointer_opt(t_options *opt)
 	opt->hash = 1;
 	opt->len = 3;
 	opt->apo = 0;
-	opt->spec = 'x';
+	// opt->spec = 'x';
 	opt->base = 16;
 	opt->sign = 0;
 }

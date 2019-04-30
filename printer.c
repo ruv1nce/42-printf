@@ -4,7 +4,7 @@ void		print_s(char *s, t_options *opt)
 {
 	int		len;
 
-	len = ft_strlen(s);
+	len = (opt->spec == 's') ? ft_strlen(s) : 1;
 	if (opt->spec == 's' && opt->prec >= 0 && opt->prec < len)
 		len = opt->prec;
 	while (!opt->right && --opt->width >= len)
@@ -30,7 +30,7 @@ static void	process_i_options(t_options *opt, int *len, int *prelen)
 		if (opt->prec > 0)
 			opt->prec--;
 	}
-	else if (opt->hash && (opt->spec == 'x' || opt->spec == 'X'))
+	else if (opt->hash && (opt->spec == 'x' || opt->spec == 'X' || opt->spec == 'p'))
 	{
 		opt->width -= 2;
 		// if (opt->prec > 2)
@@ -62,7 +62,7 @@ void		print_i(char *s, t_options *opt)
 		writer(&opt->sign, 1, opt);
 	if (opt->hash && (opt->spec == 'o'))
 		writer("0", 1, opt);
-	if (opt->hash && (opt->spec == 'x'))
+	if (opt->hash && (opt->spec == 'x' || opt->spec == 'p'))
 		writer("0x", 2, opt);
 	if (opt->hash && (opt->spec == 'X'))
 		writer("0X", 2, opt);

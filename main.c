@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/04/30 05:26:39 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/04/30 15:36:34 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,20 @@ int	main(void)
 	// ft_printf("%5c\n", i);
 	// ft_printf("%c\n", 0);
 	// ft_printf("%%");
-	// ft_printf("ft %%\n");
-	// ft_printf("ft %5%\n");
-	// ft_printf("ft %-5%\n");
-	// ft_printf("ft %05%\n");
+	ft_printf("ft %%\n");
+	ft_printf("ft %5%\n");
+	ft_printf("ft %-5%\n");
+	ft_printf("ft %05%\n");
+	ft_printf("ft %-05%\n");
+	printf("\n");
 	// printf("%5.4s\n",s);
 	// printf("%s\n", ss);
 	// printf("%5c\n", i);
-	// printf("lc %%\n");
-	// printf("lc %5%\n");
-	// printf("lc %-5%\n");
-	// printf("lc %05%\n");
+	printf("lc %%\n");
+	printf("lc %5%\n");
+	printf("lc %-5%\n");
+	printf("lc %05%\n");
+	printf("lc %-05%\n");
 	// printf("\n");
 
 	/* int lengths */
@@ -76,8 +79,8 @@ int	main(void)
 	// ft_printf("%X%lX%llX", u, ul, ull);
 	// printf("\n");
 	/* lengths out of range */
-	ft_printf("ft %hhi, %hhi, %hi, %hi\n", (char)-129, (char)128, (short)32768, (short)-32769);
-	printf("lc %hhi, %hhi, %hi, %hi\n", (char)-129, (char)128, (short)32768, (short)-32769);
+	// ft_printf("ft %hhi, %hhi, %hi, %hi\n", (char)-129, (char)128, (short)32768, (short)-32769);
+	// printf("lc %hhi, %hhi, %hi, %hi\n", (char)-129, (char)128, (short)32768, (short)-32769);
 
 	/* signed int options */
 	// ft_printf("ft %d\n", 5555);
@@ -159,9 +162,11 @@ int	main(void)
 	// printf("%2i lc %#-9.*o\n", ++r, prec, u);
 
 	/* pointers */
+	// ft_printf("ft %p\n", NULL);
 	// ft_printf("ft %p\n", &i);
 	// ft_printf("ft %20p\n", &i);
 	// ft_printf("ft %-20p\n", &i);
+	// printf("lc %p\n", NULL);
 	// printf("lc %p\n", &i);
 	// printf("lc %20p\n", &i);
 	// printf("lc %-20p\n", &i);
