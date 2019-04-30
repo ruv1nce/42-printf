@@ -31,7 +31,7 @@ typedef struct s_options
 {
 	int				width;
 	int				prec;
-	unsigned char	pad;
+	char	pad;
 	unsigned char	right;
 	unsigned char	hash;
 	unsigned char	len;
@@ -47,6 +47,7 @@ typedef void	(*printers)(char *, t_options *);
 
 int		ft_printf(char *format, ...);
 void	writer(char *s, int i, t_options *opt);
+int		validator(char *format);
 void	parser(char **format, t_options *opt, va_list ap);
 char	*make_i(va_list ap, t_options *opt);
 char	*make_u(va_list ap, t_options *opt);

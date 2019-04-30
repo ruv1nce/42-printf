@@ -8,8 +8,13 @@ void		print_s(char *s, t_options *opt)
 	if (opt->spec == 's' && opt->prec >= 0 && opt->prec < len)
 		len = opt->prec;
 	while (!opt->right && --opt->width >= len)
-		writer(" ", 1, opt);
-	if (opt->spec == 'c')
+	{
+		if (opt->spec == '%')
+			writer(&opt->pad, 1, opt);
+		else
+			writer(" ", 1, opt);
+	}
+	if (opt->spec == 'c' || opt->spec == '%')
 		writer(&s[0], 1, opt);
 	else
 		writer(s, len, opt);
@@ -28,10 +33,10 @@ static void	process_i_options(t_options *opt, int *len, int *prelen)
 	else if (opt->hash && (opt->spec == 'x' || opt->spec == 'X'))
 	{
 		opt->width -= 2;
-		if (opt->prec > 2)
-			opt->prec -= 2;
-		else
-			opt->prec = 0;
+		// if (opt->prec > 2)
+			// opt->prec -= 2;
+		// else
+			// opt->prec = 0;
 	}
 	if (opt->sign && (opt->spec == 'i' || opt->spec == 'd'))
 		opt->width--;

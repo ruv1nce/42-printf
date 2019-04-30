@@ -14,8 +14,9 @@ char	*make_s(va_list ap, t_options *opt)
 		s = va_arg(ap, char *);
 		if (!s)
 		{
-			writer("(null)", 6, opt);
-			return (NULL);
+			if (!(s = ft_strnew(6)))
+				return (NULL);
+			s = ft_strcpy(s, "(null)");
 		}
 		else
 			return (ft_strdup(s));
@@ -35,15 +36,28 @@ char	*make_s(va_list ap, t_options *opt)
 char	*make_u(va_list ap, t_options *opt)
 {
 	unsigned long long	num;
+	char				*str;
 
-	if (opt->len == 3)
+	if (opt->len == 1)
+		num = (unsigned char)va_arg(ap, unsigned int);
+	else if (opt->len == 2)
+		num = (unsigned short)va_arg(ap, unsigned int);
+	else if (opt->len == 3)
 		num = va_arg(ap, unsigned long);
 	else if (opt->len == 4)
 		num = va_arg(ap, unsigned long long);
 	else
 		num = va_arg(ap, unsigned int);
-	if (opt->spec == 'o' && num == 0)
+	if (!num)
+	{
 		opt->hash = 0;
+		if (!opt->prec)
+		{
+			str = malloc(1);
+			str[0] = 0;
+			return (str);
+		}
+	}
 	if (opt->spec == 'X')
 		return (ft_itoa_base_u(num, opt->base, 1));
 	else
@@ -53,13 +67,24 @@ char	*make_u(va_list ap, t_options *opt)
 char	*make_i(va_list ap, t_options *opt)
 {
 	long long	num;
+	char		*str;
 
-	if (opt->len == 3)
+	if (opt->len == 1)
+		num = (char)va_arg(ap, int);
+	else if (opt->len == 2)
+		num = (short)va_arg(ap, int);
+	else if (opt->len == 3)
 		num = va_arg(ap, long);
 	else if (opt->len == 4)
 		num = va_arg(ap, long long);
 	else
 		num = va_arg(ap, int);
+	if (!num && !opt->prec)
+	{
+		str = malloc(1);
+		str[0] = 0;
+		return (str);
+	}
 	if (num < 0)
 	{
 		opt->sign = '-';
