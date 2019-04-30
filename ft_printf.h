@@ -53,6 +53,8 @@ char	*make_u(va_list ap, t_options *opt);
 char	*make_s(va_list ap, t_options *opt);
 void	print_s(char *s, t_options *opt);
 void	print_i(char *s, t_options *opt);
+void	erase_opt(t_options *opt);
 void	pointer_opt(t_options *opt);
+void	print_opt(t_options *opt); //KILLME
 
 #endif
