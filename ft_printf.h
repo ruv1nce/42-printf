@@ -31,11 +31,11 @@ typedef struct s_options
 {
 	int				width;
 	int				prec;
-	char	pad;
+	char			pad;
 	unsigned char	right;
 	unsigned char	hash;
 	unsigned char	len;
-	unsigned char	apo;
+	char			apo;
 	unsigned char	spec;
 	unsigned char	base;
 	char			sign;
@@ -56,6 +56,7 @@ void	print_s(char *s, t_options *opt);
 void	print_i(char *s, t_options *opt);
 void	erase_opt(t_options *opt);
 void	pointer_opt(t_options *opt);
+char	*add_apo(char *s, t_options *opt);
 void	print_opt(t_options *opt); //KILLME
 
 #endif

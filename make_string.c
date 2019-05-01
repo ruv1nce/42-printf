@@ -57,7 +57,7 @@ char		*make_u(va_list ap, t_options *opt)
 	if (opt->spec == 'X')
 		return (ft_itoa_base_u(num, opt->base, 1));
 	else
-		return (ft_itoa_base_u(num, opt->base, 0));
+		return (add_apo(ft_itoa_base_u(num, opt->base, 0), opt));
 }
 
 char		*make_i(va_list ap, t_options *opt)
@@ -81,5 +81,5 @@ char		*make_i(va_list ap, t_options *opt)
 		opt->sign = '-';
 		num *= -1;
 	}
-	return (ft_itoa_base_u(num, 10, 0));
+	return (add_apo(ft_itoa_base_u(num, 10, 0), opt));
 }

@@ -46,7 +46,7 @@ void		iterator(char *format, t_options *opt, va_list ap)
 			// print_opt(&opt);
 			if ((str = maker[opt->spec](ap, opt)))
 			{
-			// printf("string: %s\n", str);
+				// printf("string1: %s\n", str);
 				printer[opt->spec](str, opt);
 				free(str);
 			}

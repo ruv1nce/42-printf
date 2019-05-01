@@ -1,6 +1,42 @@
 #include "ft_printf.h"
 
-void	erase_opt(t_options *opt)
+static char	*apo_string(char *s, int len)
+{
+	int		i;
+	char	*s2;
+	char	*s2start;
+
+	s += len - 1;
+	len += ((len % 3)) ? len / 3 : len / 3 - 1;
+	if (!(s2start = ft_strnew(len)))
+		return (NULL);
+	s2 = s2start + len;
+	i = 0;
+	while (--s2 >= s2start && ++i)
+	{
+		if (i == 4)
+		{
+			*s2 = '\'';
+			i = 0;
+		}
+		else
+		{
+			*s2 = *s;
+			s--;
+		}
+	}
+	free(++s);
+	return (++s2);
+}
+
+char		*add_apo(char *s, t_options *opt)
+{
+	if (opt->apo && (opt->spec == 'i' || opt->spec == 'd' || opt->spec == 'u'))
+		s = apo_string(s, ft_strlen(s));
+	return (s);
+}
+
+void		erase_opt(t_options *opt)
 {
 	opt->width = 0;
 	opt->prec = -1;
@@ -14,7 +50,7 @@ void	erase_opt(t_options *opt)
 	opt->sign = 0;
 }
 
-void	pointer_opt(t_options *opt)
+void		pointer_opt(t_options *opt)
 {
 	opt->prec = -1;
 	opt->pad = ' ';
@@ -25,7 +61,7 @@ void	pointer_opt(t_options *opt)
 	opt->sign = 0;
 }
 
-void	print_opt(t_options *opt)//
+void		print_opt(t_options *opt)//
 {
 	printf("width %i\n", opt->width);
 	printf("prec %i\n", opt->prec);
@@ -40,7 +76,7 @@ void	print_opt(t_options *opt)//
 	printf("\n");
 }
 
-int		validator(char *format)
+int			validator(char *format)
 {
 	char	*tmp;
 	int		spec_found;
@@ -56,7 +92,7 @@ int		validator(char *format)
 				if (SPEC(*tmp))
 				{
 					spec_found = 1;
-					format = tmp + 1;
+					format = tmp;
 					break ;
 				}
 				tmp++;
