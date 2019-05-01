@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/05/01 02:57:08 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/05/01 03:11:57 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,42 +68,49 @@ int	main(void)
 	// printf("lc %-05%\n");
 	// printf("\n");
 
+	/* binary */
+	ft_printf("%b\n", 255);
+	ft_printf("%15b\n", 255);
+	ft_printf("%15.12b\n", 255);
+	ft_printf("%015b\n", 255);
+	ft_printf("%-15.b\n", 255);
+
 	/* apostrophe */
-	ft_printf("%'i\n", 123);
-	ft_printf("%'i\n", 1123);
-	ft_printf("%'i\n", 123123);
-	ft_printf("%i\n", 5123123);
-	ft_printf("%'i\n", 5123123);
-	ft_printf("%15i\n", 5123123);
-	ft_printf("%'15i\n", 5123123);
-	ft_printf("%15.13i\n", 5123123);
-	ft_printf("%'15.13i\n", 5123123);
-	ft_printf("%15.i\n", 5123123);
-	ft_printf("%'15.i\n", 5123123);
-	ft_printf("%015.i\n", 5123123);
-	ft_printf("%0'15.i\n", 5123123);
-	ft_printf("%015i\n", 5123123);
-	ft_printf("%0'15i\n", 5123123);
-	ft_printf("%-15.i\n", 5123123);
-	ft_printf("%-'15.i\n", 5123123);
-	ft_printf("\n");
-	ft_printf("%'u\n", 123);
-	ft_printf("%'u\n", 1123);
-	ft_printf("%'u\n", 123123);
-	ft_printf("%u\n", 5123123);
-	ft_printf("%'u\n", 5123123);
-	ft_printf("%15u\n", 5123123);
-	ft_printf("%'15u\n", 5123123);
-	ft_printf("%15.13u\n", 5123123);
-	ft_printf("%'15.13u\n", 5123123);
-	ft_printf("%15.u\n", 5123123);
-	ft_printf("%'15.u\n", 5123123);
-	ft_printf("%015.u\n", 5123123);
-	ft_printf("%0'15.u\n", 5123123);
-	ft_printf("%015u\n", 5123123);
-	ft_printf("%0'15u\n", 5123123);
-	ft_printf("%-15.u\n", 5123123);
-	ft_printf("%-'15.u\n", 5123123);
+	// ft_printf("%'i\n", 123);
+	// ft_printf("%'i\n", 1123);
+	// ft_printf("%'i\n", 123123);
+	// ft_printf("%i\n", 5123123);
+	// ft_printf("%'i\n", 5123123);
+	// ft_printf("%15i\n", 5123123);
+	// ft_printf("%'15i\n", 5123123);
+	// ft_printf("%15.13i\n", 5123123);
+	// ft_printf("%'15.13i\n", 5123123);
+	// ft_printf("%15.i\n", 5123123);
+	// ft_printf("%'15.i\n", 5123123);
+	// ft_printf("%015.i\n", 5123123);
+	// ft_printf("%0'15.i\n", 5123123);
+	// ft_printf("%015i\n", 5123123);
+	// ft_printf("%0'15i\n", 5123123);
+	// ft_printf("%-15.i\n", 5123123);
+	// ft_printf("%-'15.i\n", 5123123);
+	// ft_printf("\n");
+	// ft_printf("%'u\n", 123);
+	// ft_printf("%'u\n", 1123);
+	// ft_printf("%'u\n", 123123);
+	// ft_printf("%u\n", 5123123);
+	// ft_printf("%'u\n", 5123123);
+	// ft_printf("%15u\n", 5123123);
+	// ft_printf("%'15u\n", 5123123);
+	// ft_printf("%15.13u\n", 5123123);
+	// ft_printf("%'15.13u\n", 5123123);
+	// ft_printf("%15.u\n", 5123123);
+	// ft_printf("%'15.u\n", 5123123);
+	// ft_printf("%015.u\n", 5123123);
+	// ft_printf("%0'15.u\n", 5123123);
+	// ft_printf("%015u\n", 5123123);
+	// ft_printf("%0'15u\n", 5123123);
+	// ft_printf("%-15.u\n", 5123123);
+	// ft_printf("%-'15.u\n", 5123123);
 
 	/* int lengths */
 	// ft_printf("%i%i%li%lli", i, j, l, ll);

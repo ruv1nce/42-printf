@@ -18,6 +18,7 @@ static void	init_func_ptrs(makers *maker, printers *printer)
 	maker['c'] = make_s;
 	maker['s'] = make_s;
 	maker['%'] = make_s;
+	maker['b'] = make_u;
 	printer['c'] = print_s;
 	printer['s'] = print_s;
 	printer['%'] = print_s;
@@ -28,6 +29,7 @@ static void	init_func_ptrs(makers *maker, printers *printer)
 	printer['x'] = print_i;
 	printer['X'] = print_i;
 	printer['p'] = print_i;
+	printer['b'] = print_i;
 }
 
 void		iterator(char *format, t_options *opt, va_list ap)
