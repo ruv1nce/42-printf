@@ -10,20 +10,9 @@
 # define FLAG(x) x == '#' || x == '0' || x == '-' || x == '+' || x == ' ' || x == '\''
 # define NUM(x) x >= '0' && x <= '9'
 # define LEN(x) x == 'h' || x == 'l' || x == 'L'
-# define SPEC(x) x == 'c' || x =='s' || x == 'd' || x == 'i' || x == 'o' || x == 'u' || x == 'x' || x == 'X' || x == 'f' || x == 'p' || x == '%' || x =='b' || x == 'e' || x == 'g'
+# define SPEC(x) x == 'c' || x =='s' || x == 'd' || x == 'i' || x == 'o' || x == 'u' || x == 'x' || x == 'X' || x == 'f' || x == 'p' || x == '%' || x =='b' || x == 'e' || x == 'g' || x =='F' || x == 'E' || x == 'G'
+# define SPEC_UPPER(x) x =='F' || x == 'E' || x == 'G'
 # define DECIMAL(x) x == 'd' || x == 'i' || x == 'u' || x == 'f' || x == 'e' || x == 'g'
-
-# define DBL_INF	0x7FF0000000000000
-# define DBL_NINF	0xFFF0000000000000
-# define DBL_NAN	0x7FF0000000100000
-# define DBL_PZERO	0x0000000000000000
-# define DBL_NZERO	0x8000000000000000
-# define LDBL_INF	0x7FFF0000000000000000L
-# define LDBL_NINF	0xFFFF0000000000000000L
-# define LDBL_NAN	0x7FFF0000000001000000L
-# define LDBL_PZERO	0x00000000000000000000L
-# define LDBL_NZERO	0x80000000000000000000L
-# define DBL_SPECIAL(x) x == DBL_INF || x == DBL_NINF || x == DBL_NAN || x == DBL_PZERO || x == DBL_NZERO || x == LDBL_INF || x == LDBL_NINF || x == LDBL_NAN || x == LDBL_PZERO || x == LDBL_NZERO
 
 /*
 ** VALID OPTIONS VALUES:
@@ -75,6 +64,8 @@ void		erase_opt(t_options *opt);
 void		pointer_opt(t_options *opt);
 char		*add_apo(char *s, t_options *opt);
 uint64_t	ft_pow_pos(int x, int pow);
-void		print_opt(t_options *opt); //KILLME
+uint64_t	rounder(long double *num, long double tmp, int prec);
+int			dotmover(long double num);
+char		*prune(char *s, t_options *opt);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/05/02 04:13:11 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/05/02 05:02:35 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ int	main(void)
 	/* feg */
 	// ft_printf("ft %f\n", DBL_NAN);
 
+	ft_printf("ft %g\n", (double)42);
+	ft_printf("ft %G\n", (double)42);
+	printf("lc %g\n", (double)42);
+	printf("lc %G\n", (double)42);
 	ft_printf("f ft %f\n", ld3);
 	ft_printf("f ft %f\n", ld4);
 	ft_printf("e ft %e\n", ld3);
@@ -196,6 +200,8 @@ int	main(void)
 	// ft_printf("%0'15u\n", 5123123);
 	// ft_printf("%-15.u\n", 5123123);
 	// ft_printf("%-'15.u\n", 5123123);
+	// ft_printf("%f\n", 5123123.555666);
+	// ft_printf("%'f\n", 5123123.555666);
 
 	/* int lengths */
 	// ft_printf("%i%i%li%lli", i, j, l, ll);

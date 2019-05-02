@@ -98,6 +98,8 @@ void		parser(char **format, t_options *opt, va_list ap)
 		else if (SPEC(**format))
 		{
 			opt->spec = **format;
+			if (SPEC_UPPER(opt->spec))
+				opt->spec += 32;
 			if (opt->spec == 'p')
 				pointer_opt(opt);
 			if (opt->spec == 'g')

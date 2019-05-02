@@ -31,7 +31,7 @@ static char	*apo_string(char *s, int len)
 
 char		*add_apo(char *s, t_options *opt)
 {
-	if (opt->apo && (opt->spec == 'i' || opt->spec == 'd' || opt->spec == 'u'))
+	if (opt->apo && (DECIMAL(opt->spec)))
 		s = apo_string(s, ft_strlen(s));
 	return (s);
 }
@@ -60,21 +60,6 @@ void		pointer_opt(t_options *opt)
 	opt->apo = 0;
 	opt->base = 16;
 	opt->sign = 0;
-}
-
-void		print_opt(t_options *opt)//
-{
-	printf("width %i\n", opt->width);
-	printf("prec %i\n", opt->prec);
-	printf("pad  %c\n", opt->pad);
-	printf("right %i\n", opt->right);
-	printf("hash %i\n", opt->hash);
-	printf("len  %i\n", opt->len);
-	printf("apo  %i\n", opt->apo);
-	printf("spec %c\n", opt->spec);
-	printf("base %i\n", opt->base);
-	printf("sign %c\n", opt->sign);
-	printf("\n");
 }
 
 int			validator(char *format)

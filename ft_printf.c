@@ -6,7 +6,7 @@ void		writer(char *s, int i, t_options *opt)
 	write(1, s, i);
 }
 
-static void	init_func_ptrs(makers *maker, printers *printer)
+static void	init_makers(makers *maker)
 {
 	maker['i'] = make_i;
 	maker['d'] = make_i;
@@ -22,6 +22,10 @@ static void	init_func_ptrs(makers *maker, printers *printer)
 	maker['f'] = make_feg;
 	maker['e'] = make_feg;
 	maker['g'] = make_feg;
+}
+
+static void	init_printers(printers *printer)
+{
 	printer['c'] = print_s;
 	printer['s'] = print_s;
 	printer['%'] = print_s;
@@ -44,17 +48,16 @@ void		iterator(char *format, t_options *opt, va_list ap)
 	printers	printer[121];
 	char		*str;
 
-	init_func_ptrs(maker, printer);
+	init_makers(maker);
+	init_printers(printer);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			erase_opt(opt);
 			parser(&format, opt, ap);
-			// print_opt(&opt);
 			if ((str = maker[opt->spec](ap, opt)))
 			{
-				// printf("string1: %s\n", str);
 				printer[opt->spec](str, opt);
 				free(str);
 			}
