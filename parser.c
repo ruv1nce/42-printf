@@ -100,6 +100,8 @@ void		parser(char **format, t_options *opt, va_list ap)
 			opt->spec = **format;
 			if (opt->spec == 'p')
 				pointer_opt(opt);
+			if (opt->spec == 'g')
+				opt->prun = 1;
 			save_base(opt->spec, opt);
 			break ;
 		}

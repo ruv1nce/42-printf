@@ -35,6 +35,7 @@
 ** len: 1 - hh, 2 - h, 3 - l, 4 - ll, 5 - L;
 ** apo: 1 - true;
 ** spec: csiouxXfp%;
+** prun: 1 - true;
 ** base: 10, 8, 16, 2;
 ** sign: '+', '-';
 ** cnt: symbols printed (0 <> n);
@@ -50,6 +51,7 @@ typedef struct s_options
 	unsigned char	len;
 	char			apo;
 	unsigned char	spec;
+	unsigned char	prun;
 	unsigned char	base;
 	char			sign;
 	unsigned int	cnt;
