@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/05/01 03:11:57 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/05/01 05:57:48 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(void)
 	int		nonprint;
 	int		j;
 	int		k;
+	int		n;
 	unsigned int u;
 	long	l;
 	unsigned long	ul;
@@ -40,6 +41,12 @@ int	main(void)
 	ll = -9223372036854775807;
 	ull = 18446744073709551615U;
 	d = 15.69;
+	n = 0;
+
+	/* %n */
+	printf("n %i\n", n);
+	printf("123456788\n%5n", &n);
+	printf("n %i\n", n);
 
 	/* char, string, % */
 	// ft_printf("ft %20s\n", NULL);
@@ -69,11 +76,11 @@ int	main(void)
 	// printf("\n");
 
 	/* binary */
-	ft_printf("%b\n", 255);
-	ft_printf("%15b\n", 255);
-	ft_printf("%15.12b\n", 255);
-	ft_printf("%015b\n", 255);
-	ft_printf("%-15.b\n", 255);
+	// ft_printf("%b\n", 255);
+	// ft_printf("%15b\n", 255);
+	// ft_printf("%15.12b\n", 255);
+	// ft_printf("%015b\n", 255);
+	// ft_printf("%-15.b\n", 255);
 
 	/* apostrophe */
 	// ft_printf("%'i\n", 123);
