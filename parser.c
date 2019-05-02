@@ -21,10 +21,10 @@ static void	save_flag(char **format, t_options *opt)
 
 static void	save_widthprec(char **format, t_options *opt, va_list ap)
 {
-	if (NUM(**format))
+	if (!(elf(**format)))
 	{
 		opt->width = ft_atoi(*format);
-		while (NUM(**format) && NUM(*(*format + 1)))
+		while (!(elf(**format)) && !(elf(*(*format + 1))))
 			(*format)++;
 	}
 	else if (**format == '*')
@@ -32,11 +32,11 @@ static void	save_widthprec(char **format, t_options *opt, va_list ap)
 	if (**format == '.')
 	{
 		opt->prec = 0;
-		if (NUM(*(*format + 1)))
+		if (!(elf(*(*format + 1))))
 		{
 			(*format)++;
 			opt->prec = ft_atoi(*format);
-			while (NUM(**format) && NUM(*(*format + 1)))
+			while (!(elf(**format)) && !(elf(*(*format + 1))))
 				(*format)++;
 		}
 		else if (*(*format + 1) == '*')
@@ -75,7 +75,7 @@ static void	save_len(char **format, t_options *opt)
 
 static void	save_base(unsigned char spec, t_options *opt)
 {
-	if (DECIMAL(spec))
+	if (elf(spec) == 10)
 		opt->base = 10;
 	else if (spec == 'o')
 		opt->base = 8;
@@ -89,16 +89,16 @@ void		parser(char **format, t_options *opt, va_list ap)
 {
 	while (*(++*format))
 	{
-		if (FLAG(**format))
+		if (elf(**format) == 1)
 			save_flag(format, opt);
-		else if ((NUM(**format)) || **format == '.' || **format == '*')
+		else if (!(elf(**format)) || **format == '.' || **format == '*')
 			save_widthprec(format, opt, ap);
-		else if (LEN(**format))
+		else if (elf(**format) == -1)
 			save_len(format, opt);
-		else if (SPEC(**format))
+		else if (elf(**format) >= 10)
 		{
 			opt->spec = **format;
-			if (SPEC_UPPER(opt->spec))
+			if (elf(opt->spec) == 100)
 				opt->spec += 32;
 			if (opt->spec == 'p')
 				pointer_opt(opt);

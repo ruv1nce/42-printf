@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/05/02 05:57:17 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/05/02 15:48:09 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ int	main(void)
 	ld4 = 1300000;
 
 	/* asterisk */
-	// ft_printf("ft %.*f\n", 3, ld3);
-	// ft_printf("ft %.*f\n", -3, ld3);
-	// ft_printf("ft %.*i\n", -10, i);
-	// printf("lc %.*f\n", 3, ld3);
-	// printf("lc %.*f\n", -100, ld3);
-	// printf("lc %.*i\n", -10, i);
+	ft_printf("ft %.*f\n", 3, ld3);
+	ft_printf("ft %.*f\n", -3, ld3); // negative precision
+	ft_printf("ft %.*i\n", -10, i);
+	printf("lc %.*f\n", 3, ld3);
+	printf("lc %.*f\n", -100, ld3);
+	printf("lc %.*i\n", -10, i);
 
 	/* %n */
 	// printf("n %i\n", n);

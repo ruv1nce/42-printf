@@ -6,7 +6,7 @@ void		writer(char *s, int i, t_options *opt)
 	write(1, s, i);
 }
 
-static void	init_makers(makers *maker)
+static void	init_makers(t_makers *maker)
 {
 	maker['i'] = make_i;
 	maker['d'] = make_i;
@@ -24,7 +24,7 @@ static void	init_makers(makers *maker)
 	maker['g'] = make_feg;
 }
 
-static void	init_printers(printers *printer)
+static void	init_printers(t_printers *printer)
 {
 	printer['c'] = print_s;
 	printer['s'] = print_s;
@@ -44,8 +44,8 @@ static void	init_printers(printers *printer)
 
 void		iterator(char *format, t_options *opt, va_list ap)
 {
-	makers		maker[121];
-	printers	printer[121];
+	t_makers	maker[121];
+	t_printers	printer[121];
 	char		*str;
 
 	init_makers(maker);

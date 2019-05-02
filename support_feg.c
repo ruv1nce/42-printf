@@ -1,5 +1,25 @@
 #include "ft_printf.h"
 
+int			elf(char x)
+{
+	if (x == '#' || x == '0' || x == '-' || x == '+' || x == ' ' || x == '\'')
+		return (1);
+	else if (x >= '0' && x <= '9')
+		return (0);
+	else if (x == 'd' || x == 'i' || x == 'u' || x == 'f' || x == 'e' \
+			|| x == 'g')
+		return (10);
+	else if (x == 'c' || x == 's' || x == 'o' || x == 'x' || x == 'X' \
+			|| x == 'p' || x == '%' || x == 'b')
+		return (11);
+	else if (x == 'F' || x == 'E' || x == 'G')
+		return (100);
+	else if (x == 'h' || x == 'l' || x == 'L')
+		return (-1);
+	else
+		return (-10);
+}
+
 uint64_t	ft_pow_pos(int x, int pow)
 {
 	uint64_t	res;

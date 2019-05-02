@@ -7,13 +7,6 @@
 # include <stdint.h>
 # include "libft/libft.h"
 
-# define FLAG(x) x == '#' || x == '0' || x == '-' || x == '+' || x == ' ' || x == '\''
-# define NUM(x) x >= '0' && x <= '9'
-# define LEN(x) x == 'h' || x == 'l' || x == 'L'
-# define SPEC(x) x == 'c' || x =='s' || x == 'd' || x == 'i' || x == 'o' || x == 'u' || x == 'x' || x == 'X' || x == 'f' || x == 'p' || x == '%' || x =='b' || x == 'e' || x == 'g' || x =='F' || x == 'E' || x == 'G'
-# define SPEC_UPPER(x) x =='F' || x == 'E' || x == 'G'
-# define DECIMAL(x) x == 'd' || x == 'i' || x == 'u' || x == 'f' || x == 'e' || x == 'g'
-
 /*
 ** VALID OPTIONS VALUES:
 ** width: > 0;
@@ -46,13 +39,14 @@ typedef struct		s_options
 	unsigned int	cnt;
 }					t_options;
 
-typedef char	*(*makers)(va_list, t_options *);
-typedef void	(*printers)(char *, t_options *);
+typedef char		*(*t_makers)(va_list ap, t_options*);
+typedef void		(*t_printers)(char*, t_options*);
 
 int					ft_printf(char *format, ...);
 void				writer(char *s, int i, t_options *opt);
 int					validator(char *format);
 void				parser(char **format, t_options *opt, va_list ap);
+int					elf(char x);
 char				*make_i(va_list ap, t_options *opt);
 char				*make_u(va_list ap, t_options *opt);
 char				*make_s(va_list ap, t_options *opt);

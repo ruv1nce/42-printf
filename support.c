@@ -31,7 +31,7 @@ static char	*apo_string(char *s, int len)
 
 char		*add_apo(char *s, t_options *opt)
 {
-	if (opt->apo && (DECIMAL(opt->spec)))
+	if (opt->apo && (elf(opt->spec) == 10))
 		s = apo_string(s, ft_strlen(s));
 	return (s);
 }
@@ -75,7 +75,7 @@ int			validator(char *format)
 			spec_found = 0;
 			while (*tmp)
 			{
-				if (SPEC(*tmp))
+				if (elf(*tmp) >= 10)
 				{
 					spec_found = 1;
 					format = tmp;
