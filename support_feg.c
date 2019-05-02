@@ -4,8 +4,6 @@ int			elf(char x)
 {
 	if (x == '#' || x == '0' || x == '-' || x == '+' || x == ' ' || x == '\'')
 		return (1);
-	else if (x >= '0' && x <= '9')
-		return (0);
 	else if (x == 'd' || x == 'i' || x == 'u' || x == 'f' || x == 'e' \
 			|| x == 'g')
 		return (10);

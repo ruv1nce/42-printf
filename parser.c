@@ -21,10 +21,10 @@ static void	save_flag(char **format, t_options *opt)
 
 static void	save_widthprec(char **format, t_options *opt, va_list ap)
 {
-	if (!(elf(**format)))
+	if (NUM(**format))
 	{
 		opt->width = ft_atoi(*format);
-		while (!(elf(**format)) && !(elf(*(*format + 1))))
+		while (NUM(**format) && NUM(*(*format + 1)))
 			(*format)++;
 	}
 	else if (**format == '*')
@@ -32,11 +32,11 @@ static void	save_widthprec(char **format, t_options *opt, va_list ap)
 	if (**format == '.')
 	{
 		opt->prec = 0;
-		if (!(elf(*(*format + 1))))
+		if (NUM(*(*format + 1)))
 		{
 			(*format)++;
 			opt->prec = ft_atoi(*format);
-			while (!(elf(**format)) && !(elf(*(*format + 1))))
+			while (NUM(**format) && NUM(*(*format + 1)))
 				(*format)++;
 		}
 		else if (*(*format + 1) == '*')
@@ -91,7 +91,7 @@ void		parser(char **format, t_options *opt, va_list ap)
 	{
 		if (elf(**format) == 1)
 			save_flag(format, opt);
-		else if (!(elf(**format)) || **format == '.' || **format == '*')
+		else if ((NUM(**format)) || **format == '.' || **format == '*')
 			save_widthprec(format, opt, ap);
 		else if (elf(**format) == -1)
 			save_len(format, opt);

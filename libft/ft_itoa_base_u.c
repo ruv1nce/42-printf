@@ -6,11 +6,10 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 01:45:04 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/04/27 01:45:04 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/05/02 16:35:07 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>	//killme
 #include "libft.h"
 
 static char	*zero_string(void)

@@ -7,6 +7,8 @@
 # include <stdint.h>
 # include "libft/libft.h"
 
+# define NUM(x) x >= '0' && x <= '9'
+
 /*
 ** VALID OPTIONS VALUES:
 ** width: > 0;
