@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/05/01 05:57:48 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/05/02 03:31:32 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,13 @@ int	main(void)
 	unsigned long	ul;
 	long long ll;
 	unsigned long long ull;
+	float	f;
 	double	d;
+	long double	ld;
+	long double	ld1;
+	long double	ld2;
+	long double	ld3;
+	long double	ld4;
 	// char	*s = "fucko";
 	// char	*ss = NULL;
 
@@ -42,11 +48,68 @@ int	main(void)
 	ull = 18446744073709551615U;
 	d = 15.69;
 	n = 0;
+	f  = 2345.1349999999;
+	d  = 2345.111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;
+	ld = 12.14567511111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;
+	ld1 = 121.4567511111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;;
+	ld2 = 142515.111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;
+	ld3 = 0.0001111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;
+	ld4 = 0.00001111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;
 
 	/* %n */
-	printf("n %i\n", n);
-	printf("123456788\n%5n", &n);
-	printf("n %i\n", n);
+	// printf("n %i\n", n);
+	// printf("123456788\n%5n", &n);
+	// printf("n %i\n", n);
+
+	/* feg */
+	ft_printf("ft %f\n", DBL_NAN);
+	// ft_printf("ft %.20f\n", 1.5);
+	// ft_printf("float rounding ft %.2f\n", 23.679);
+	// ft_printf("float rounding ft %.2f\n", 99.99999);
+	// ft_printf("float rounding ft %f\n", 573.924);
+	// ft_printf("float ft %f\n", f);
+	// ft_printf("float ft %#.f\n", f);
+	// ft_printf("float ft %.10f\n", f);
+	// ft_printf("float ft %020.10f\n", f);
+	// ft_printf("float ft %020.10f\n", -f);
+	// ft_printf("float ft % 20.10f\n", f);
+	// ft_printf("float ft %# 20.10f\n", f);
+	// ft_printf("float ft %#-20.10f\n", f);
+	// ft_printf("float ft %#+20.10f\n", f);
+	// printf("\n");
+	// printf("ls %.20f\n", 1.5);
+	// printf("float rounding lc %.2f\n", 23.679);
+	// printf("float rounding lc %.2f\n", 99.99999);
+	// printf("float ls %f\n", f);
+	// printf("float ls %#.f\n", f);
+	// printf("float ls %.10f\n", f);
+	// printf("float ls %020.10f\n", f);
+	// printf("float ls %020.10f\n", -f);
+	// printf("float ls % 20.10f\n", f);
+	// printf("float ls %# 20.10f\n", f);
+	// printf("float ls %#-20.10f\n", f);
+	// printf("float ls %#+20.10f\n", f);
+	// printf("ls %#+20.10e\n", f);
+	// printf("ls %#+20.10g\n", f);
+
+	// printf("ls %f\n", f);
+	// printf("ls %.10f\n", f);
+	// printf("f %.0f\n", f);
+	// printf("f %.f\n", f);
+
+	// ft_printf("ft e %.Le\n", ld3);
+	// ft_printf("ft e %#.Le\n", ld3);
+	// ft_printf("ft e %#.5Le\n", ld3);
+	// ft_printf("ft e % 20.Le\n", ld3);
+	// ft_printf("ft e %020.0Le\n", ld3);
+	// ft_printf("ft e %+20.Le\n", ld3);
+	// printf("lf e %.Le\n", ld3);
+	// printf("lf e %#.Le\n", ld3);
+	// printf("lf e %#.5Le\n", ld3);
+	// printf("lf e % 20.Le\n", ld3);
+	// printf("lf e %020.0Le\n", ld3);
+	// printf("lf e %+20.Le\n", ld3);
+
 
 	/* char, string, % */
 	// ft_printf("ft %20s\n", NULL);
