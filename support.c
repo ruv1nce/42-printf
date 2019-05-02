@@ -46,6 +46,7 @@ void		erase_opt(t_options *opt)
 	opt->len = 0;
 	opt->apo = 0;
 	opt->spec = 0;
+	opt->prun = 0;
 	opt->base = 0;
 	opt->sign = 0;
 }
