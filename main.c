@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/05/02 03:31:32 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/05/02 04:13:11 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	main(void)
 	long double	ld;
 	long double	ld1;
 	long double	ld2;
-	long double	ld3;
-	long double	ld4;
+	double	ld3;
+	double	ld4;
 	// char	*s = "fucko";
 	// char	*ss = NULL;
 
@@ -53,8 +53,8 @@ int	main(void)
 	ld = 12.14567511111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;
 	ld1 = 121.4567511111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;;
 	ld2 = 142515.111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;
-	ld3 = 0.0001111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;
-	ld4 = 0.00001111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999;
+	ld3 = 42.2456456456;
+	ld4 = 1300000;
 
 	/* %n */
 	// printf("n %i\n", n);
@@ -62,7 +62,22 @@ int	main(void)
 	// printf("n %i\n", n);
 
 	/* feg */
-	ft_printf("ft %f\n", DBL_NAN);
+	// ft_printf("ft %f\n", DBL_NAN);
+
+	ft_printf("f ft %f\n", ld3);
+	ft_printf("f ft %f\n", ld4);
+	ft_printf("e ft %e\n", ld3);
+	ft_printf("e ft %e\n", ld4);
+	ft_printf("g ft %.4g\n", ld3);
+	ft_printf("g ft %.4g\n", ld4);
+	ft_printf("\n");
+	printf("f ls %f\n", ld3);
+	printf("f ls %f\n", ld4);
+	printf("e ls %e\n", ld3);
+	printf("e ls %e\n", ld4);
+	printf("g ls %.4g\n", ld3);
+	printf("g ls %.4g\n", ld4);
+
 	// ft_printf("ft %.20f\n", 1.5);
 	// ft_printf("float rounding ft %.2f\n", 23.679);
 	// ft_printf("float rounding ft %.2f\n", 99.99999);

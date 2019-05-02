@@ -52,12 +52,12 @@ uint64_t	rounder(long double *num, long double tmp, int prec)
 	return (tail);
 }
 
-static int					dotmover(long double num)
+static int		dotmover(long double num)
 {
 	int		mov;
 
 	mov = 0;
-	if (num < 1)
+	if (num < 1 && num)
 	{
 		while (num < 1)
 		{
@@ -149,7 +149,6 @@ static char					*make_g(long double num, t_options *opt)
 	char	*s;
 
 	mov = dotmover(num);
-	// opt->prec = (opt->prec == 0) ? 0 : 6;
 	if (-mov < opt->prec && -mov >= -4)
 	{
 		opt->prec = (opt->prec == 0) ? 0 : opt->prec + mov - 1;
