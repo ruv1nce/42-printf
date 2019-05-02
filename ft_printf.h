@@ -49,23 +49,23 @@ typedef struct		s_options
 typedef char	*(*makers)(va_list, t_options *);
 typedef void	(*printers)(char *, t_options *);
 
-int			ft_printf(char *format, ...);
-void		writer(char *s, int i, t_options *opt);
-int			validator(char *format);
-void		parser(char **format, t_options *opt, va_list ap);
-char		*make_i(va_list ap, t_options *opt);
-char		*make_u(va_list ap, t_options *opt);
-char		*make_s(va_list ap, t_options *opt);
-char		*make_feg(va_list ap, t_options *opt);
-void		print_s(char *s, t_options *opt);
-void		print_i(char *s, t_options *opt);
-void		print_feg(char *s, t_options *opt);
-void		erase_opt(t_options *opt);
-void		pointer_opt(t_options *opt);
-char		*add_apo(char *s, t_options *opt);
-uint64_t	ft_pow_pos(int x, int pow);
-uint64_t	rounder(long double *num, long double tmp, int prec);
-int			dotmover(long double num);
-char		*prune(char *s, t_options *opt);
+int					ft_printf(char *format, ...);
+void				writer(char *s, int i, t_options *opt);
+int					validator(char *format);
+void				parser(char **format, t_options *opt, va_list ap);
+char				*make_i(va_list ap, t_options *opt);
+char				*make_u(va_list ap, t_options *opt);
+char				*make_s(va_list ap, t_options *opt);
+char				*make_feg(va_list ap, t_options *opt);
+void				print_s(char *s, t_options *opt);
+void				print_i(char *s, t_options *opt);
+void				print_feg(char *s, t_options *opt);
+void				erase_opt(t_options *opt);
+void				pointer_opt(t_options *opt);
+char				*add_apo(char *s, t_options *opt);
+uint64_t			ft_pow_pos(int x, int pow);
+uint64_t			rounder(long double *num, long double tmp, int prec);
+int					dotmover(long double num);
+char				*prune(char *s, t_options *opt);
 
 #endif

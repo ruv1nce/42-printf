@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/05/02 05:02:35 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/05/02 05:57:17 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,14 @@ int	main(void)
 	ld3 = 42.2456456456;
 	ld4 = 1300000;
 
+	/* asterisk */
+	// ft_printf("ft %.*f\n", 3, ld3);
+	// ft_printf("ft %.*f\n", -3, ld3);
+	// ft_printf("ft %.*i\n", -10, i);
+	// printf("lc %.*f\n", 3, ld3);
+	// printf("lc %.*f\n", -100, ld3);
+	// printf("lc %.*i\n", -10, i);
+
 	/* %n */
 	// printf("n %i\n", n);
 	// printf("123456788\n%5n", &n);
@@ -64,23 +72,23 @@ int	main(void)
 	/* feg */
 	// ft_printf("ft %f\n", DBL_NAN);
 
-	ft_printf("ft %g\n", (double)42);
-	ft_printf("ft %G\n", (double)42);
-	printf("lc %g\n", (double)42);
-	printf("lc %G\n", (double)42);
-	ft_printf("f ft %f\n", ld3);
-	ft_printf("f ft %f\n", ld4);
-	ft_printf("e ft %e\n", ld3);
-	ft_printf("e ft %e\n", ld4);
-	ft_printf("g ft %.4g\n", ld3);
-	ft_printf("g ft %.4g\n", ld4);
-	ft_printf("\n");
-	printf("f ls %f\n", ld3);
-	printf("f ls %f\n", ld4);
-	printf("e ls %e\n", ld3);
-	printf("e ls %e\n", ld4);
-	printf("g ls %.4g\n", ld3);
-	printf("g ls %.4g\n", ld4);
+	// ft_printf("ft %g\n", (double)42);
+	// ft_printf("ft %G\n", (double)42);
+	// printf("lc %g\n", (double)42);
+	// printf("lc %G\n", (double)42);
+	// ft_printf("f ft %f\n", ld3);
+	// ft_printf("f ft %f\n", ld4);
+	// ft_printf("e ft %e\n", ld3);
+	// ft_printf("e ft %e\n", ld4);
+	// ft_printf("g ft %.4g\n", ld3);
+	// ft_printf("g ft %.4g\n", ld4);
+	// ft_printf("\n");
+	// printf("f ls %f\n", ld3);
+	// printf("f ls %f\n", ld4);
+	// printf("e ls %e\n", ld3);
+	// printf("e ls %e\n", ld4);
+	// printf("g ls %.4g\n", ld3);
+	// printf("g ls %.4g\n", ld4);
 
 	// ft_printf("ft %.20f\n", 1.5);
 	// ft_printf("float rounding ft %.2f\n", 23.679);
