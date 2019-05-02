@@ -30,7 +30,7 @@
 ** cnt: symbols printed (0 <> n);
 */
 
-typedef struct s_options
+typedef struct		s_options
 {
 	int				width;
 	int				prec;

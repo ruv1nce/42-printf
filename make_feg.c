@@ -19,8 +19,8 @@ static char					*make_f(long double num, t_options *opt)
 	}
 	t2 = prune(t2, opt);
 	s = ft_strjoin(t1, t2);
-	free (t1);
-	free (t2);
+	free(t1);
+	free(t2);
 	return (s);
 }
 

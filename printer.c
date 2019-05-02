@@ -30,7 +30,8 @@ static void	process_i_options(t_options *opt, int *len, int *prelen)
 		if (opt->prec > 0)
 			opt->prec--;
 	}
-	else if (opt->hash && (opt->spec == 'x' || opt->spec == 'X' || opt->spec == 'p'))
+	else if (opt->hash && (opt->spec == 'x' || opt->spec == 'X'
+				|| opt->spec == 'p'))
 		opt->width -= 2;
 	if (opt->sign && (opt->spec == 'i' || opt->spec == 'd'))
 		opt->width--;
@@ -67,7 +68,7 @@ void		print_i(char *s, t_options *opt)
 		writer(" ", 1, opt);
 }
 
-void	print_feg(char *s, t_options *opt)
+void		print_feg(char *s, t_options *opt)
 {
 	int	len;
 
