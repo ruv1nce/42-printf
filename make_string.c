@@ -35,7 +35,7 @@ char		*make_s(va_list ap, t_options *opt)
 
 char		*make_u(va_list ap, t_options *opt)
 {
-	unsigned long long	num;
+	uint64_t	num;
 
 	if (opt->len == 1)
 		num = (unsigned char)va_arg(ap, unsigned int);
@@ -44,7 +44,7 @@ char		*make_u(va_list ap, t_options *opt)
 	else if (opt->len == 3)
 		num = va_arg(ap, unsigned long);
 	else if (opt->len == 4)
-		num = va_arg(ap, unsigned long long);
+		num = va_arg(ap, uint64_t);
 	else
 		num = va_arg(ap, unsigned int);
 	if (!num && opt->spec != 'p')

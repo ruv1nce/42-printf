@@ -1,13 +1,8 @@
 #include "ft_printf.h"
 
-/*
-** for 's' spec we duplicate string so we can free it later
-** like any other string created here
-*/
-
-static unsigned long long	ft_pow_pos(int x, int pow)
+long double	ft_pow_pos_dbl(int x, int pow)
 {
-	unsigned long long	res;
+	long double	res;
 
 	if (pow < 0)
 		return (0);
@@ -22,26 +17,59 @@ static unsigned long long	ft_pow_pos(int x, int pow)
 	return (res);
 }
 
-static int	dotmover(long double num)
+uint64_t	ft_pow_pos(int x, int pow)
+{
+	uint64_t	res;
+
+	if (pow < 0)
+		return (0);
+	else if (pow == 0)
+		res = 1;
+	else
+	{
+		res = 1;
+		while (pow--)
+			res *= x;
+	}
+	return (res);
+}
+
+uint64_t	rounder(long double *num, long double tmp, int prec)
+{
+	uint64_t	tail;
+	long double	dec;
+
+	tmp -= (uint64_t)tmp;
+	dec = ft_pow_pos(10, prec);
+	tmp *= dec;
+	tmp += 0.5;
+	tail = tmp;
+	if (tail / dec >= 1)
+	{
+		tail = 0;
+		*num += 1;
+	}
+	return (tail);
+}
+
+static int					dotmover(long double num)
 {
 	int		mov;
-	long double	tmp;
 
 	mov = 0;
-	tmp = num;
-	if (num < 1 && num != 0)
+	if (num < 1)
 	{
-		while (tmp < 1)
+		while (num < 1)
 		{
-			tmp *= 10;
+			num *= 10;
 			mov++;
 		}
 	}
 	else if (num >= 1)
 	{
-		while (tmp >= 10)
+		while (num >= 10)
 		{
-			tmp /= 10;
+			num /= 10;
 			mov--;
 		}
 	}
@@ -69,23 +97,23 @@ static char	*prune(char *s, t_options *opt)
 }
 
 
-static char	*make_f(long double num, t_options *opt)
+static char					*make_f(long double num, t_options *opt)
 {
-	int		i;
+	uint64_t	tail;
+	int			tmp;
 	char		*s;
 	char		*t1;
 	char		*t2;
 
-	t1 = ft_itoa_base_u((unsigned long long)num, 10, 0);
-	num = num - (unsigned long long)num;
-	t2 = ft_strnew(opt->prec + 1);
-	i = -1;
-	while (++i < opt->prec + 1)
+	tail = rounder(&num, num, opt->prec);
+	t1 = ft_itoa_base_u((uint64_t)num, 10, 0);
+	t2 = ft_strnew(opt->prec);
+	tmp = opt->prec;
+	while (--tmp >= 0)
 	{
-		t2[i] = (int)(num * 10) + 48;
-		num = num * 10 - (int)(num * 10);
+		t2[tmp] = tail % 10 + '0';
+		tail /= 10;
 	}
-	t2[--i] = 0;
 	t2 = prune(t2, opt);
 	s = ft_strjoin(t1, t2);
 	free (t1);
@@ -93,11 +121,11 @@ static char	*make_f(long double num, t_options *opt)
 	return (s);
 }
 
-static char	*make_e(long double num, t_options *opt)
+static char					*make_e(long double num, t_options *opt)
 {
-	char		*s;
-	char		*t1;
-	char		t2[5];
+	char	*s;
+	char	*t1;
+	char	t2[5];
 	int		mov;
 
 	mov = dotmover(num);
@@ -107,21 +135,21 @@ static char	*make_e(long double num, t_options *opt)
 	t2[0] = 'e';
 	t2[1] = (mov > 0) ? '-' : '+';
 	mov = mov < 0 ? -mov : mov;
-	t2[2] = mov / 10 + 48;
-	t2[3] = mov % 10 + 48;
+	t2[2] = mov / 10 + '0';
+	t2[3] = mov % 10 + '0';
 	t2[4] = '\0';
 	s = ft_strjoin(t1, t2);
 	free(t1);
 	return (s);
 }
 
-static char	*make_g(long double num, t_options *opt)
+static char					*make_g(long double num, t_options *opt)
 {
 	int		mov;
-	char		*s;
+	char	*s;
 
 	mov = dotmover(num);
-	opt->prec = (opt->prec == 0) ? 0 : 6;
+	// opt->prec = (opt->prec == 0) ? 0 : 6;
 	if (-mov < opt->prec && -mov >= -4)
 	{
 		opt->prec = (opt->prec == 0) ? 0 : opt->prec + mov - 1;
@@ -137,17 +165,18 @@ static char	*make_g(long double num, t_options *opt)
 	return (s);
 }
 
-char	*make_feg(va_list ap, t_options *opt)
+char						*make_feg(va_list ap, t_options *opt)
 {
 	long double	num;
 	char		*s;
 
 	num = (opt->len == 5) ? va_arg(ap, long double) : va_arg(ap, double);
-	if (num < 0)
+	if (num < 0 || num == DBL_NZERO)
 	{
 		opt->sign = '-';
 		num *= -1;
 	}
+	// if (DBL_SPECIAL(num))
 	opt->prec = (opt->prec == -1) ? 6 : opt->prec;
 	if (opt->spec == 'f')
 		s = make_f(num, opt);
