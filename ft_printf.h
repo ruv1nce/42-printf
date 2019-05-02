@@ -9,7 +9,7 @@
 # define FLAG(x) x == '#' || x == '0' || x == '-' || x == '+' || x == ' ' || x == '\''
 # define NUM(x) x >= '0' && x <= '9'
 # define LEN(x) x == 'h' || x == 'l' || x == 'L'
-# define SPEC(x) x == 'c' || x =='s' || x == 'd' || x == 'i' || x == 'o' || x == 'u' || x == 'x' || x == 'X' || x == 'f' || x == 'p' || x == '%' || x =='b'
+# define SPEC(x) x == 'c' || x =='s' || x == 'd' || x == 'i' || x == 'o' || x == 'u' || x == 'x' || x == 'X' || x == 'f' || x == 'p' || x == '%' || x =='b' || x == 'e' || x == 'g'
 # define DECIMAL(x) x == 'd' || x == 'i' || x == 'u' || x == 'f' || x == 'e' || x == 'g'
 
 /*
@@ -52,8 +52,10 @@ void	parser(char **format, t_options *opt, va_list ap);
 char	*make_i(va_list ap, t_options *opt);
 char	*make_u(va_list ap, t_options *opt);
 char	*make_s(va_list ap, t_options *opt);
+char	*make_feg(va_list ap, t_options *opt);
 void	print_s(char *s, t_options *opt);
 void	print_i(char *s, t_options *opt);
+void	print_feg(char *s, t_options *opt);
 void	erase_opt(t_options *opt);
 void	pointer_opt(t_options *opt);
 char	*add_apo(char *s, t_options *opt);

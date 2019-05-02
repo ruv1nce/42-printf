@@ -66,3 +66,37 @@ void		print_i(char *s, t_options *opt)
 	while (opt->right && --opt->width >= len)
 		writer(" ", 1, opt);
 }
+
+void	print_feg(char *s, t_options *opt)
+{
+	int	len;
+	int	prelen;
+
+	len = ft_strlen(s);
+	prelen = 0;
+	if ((opt->hash && !opt->prec) || opt->prec)
+		opt->width--;
+	if (opt->sign)
+		opt->width--;
+	if (!opt->right && opt->pad == '0' && opt->width > len/* + prelen*/)
+		prelen += opt->width - len;
+	opt->width -= prelen;
+	while (!opt->right && --opt->width >= len)
+		writer(" ", 1, opt);
+	if (opt->sign)
+		writer(&opt->sign, 1, opt);
+	while (--prelen >= 0)
+		writer("0", 1, opt);
+	if (opt->spec == 'f')
+		writer(s, len - opt->prec, opt);
+	else
+		writer(s, 1, opt);
+	if ((opt->hash && !opt->prec) || opt->prec)
+		writer(".", 1, opt);
+	if (opt->spec == 'f')
+		writer(s + len - opt->prec, opt->prec, opt);
+	else
+		writer(s + 1, 4 + opt->prec, opt);
+	while (opt->right && --opt->width >= len)
+		writer(" ", 1, opt);
+}
