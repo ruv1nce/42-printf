@@ -53,7 +53,7 @@ void		erase_opt(t_options *opt)
 
 void		pointer_opt(t_options *opt)
 {
-	opt->prec = -1;
+	// opt->prec = -1;
 	opt->pad = ' ';
 	opt->hash = 1;
 	opt->len = 3;

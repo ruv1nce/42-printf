@@ -78,7 +78,7 @@ char						*make_feg(va_list ap, t_options *opt)
 		opt->sign = '-';
 		num *= -1;
 	}
-	opt->prec = (opt->prec == -1) ? 6 : opt->prec;
+	opt->prec = (opt->prec < 0) ? 6 : opt->prec;
 	if (opt->spec == 'f')
 		s = make_f(num, opt);
 	else if (opt->spec == 'e')
