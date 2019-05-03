@@ -81,6 +81,8 @@ int			validator(char *format)
 					format = tmp;
 					break ;
 				}
+				else if (elf(*tmp) == -10 && !(NUM(*tmp)) && *tmp != '*' && *tmp != '.')
+					return (0);
 				tmp++;
 			}
 			if (!spec_found)
