@@ -6,7 +6,7 @@
 /*   By: dfonarev <dfonarev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 02:13:24 by dfonarev          #+#    #+#             */
-/*   Updated: 2019/05/02 17:49:24 by dfonarev         ###   ########.fr       */
+/*   Updated: 2019/05/02 18:52:47 by dfonarev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,10 @@ int	main(void)
 	ld3 = 42.2456456456;
 	ld4 = 1300000;
 
-	ft_printf("%.110Lf\n", ld1);
-	printf("%.110Lf\n", ld1);
+	// ft_printf("ft {%05.*d}", -15, 42);
+	// printf("lc {%05.*d}", -15, 42);
+	// ft_printf("%.110Lf\n", ld1);
+	// printf("%.110Lf\n", ld1);
 	// ft_printf("ft %10x\n", 42);
 	// printf("lc %10x\n", 42);
 	// ft_printf("ft %p\n", NULL);

@@ -37,7 +37,7 @@ static void	process_i_options(t_options *opt, int *len, int *prelen)
 		opt->width--;
 	if (opt->prec > *len)
 		*prelen += opt->prec - *len;
-	else if (opt->prec == -1 && !opt->right && opt->pad == '0'
+	else if (opt->prec < 0 && !opt->right && opt->pad == '0'
 			&& opt->width > *len + *prelen)
 		*prelen += opt->width - *len;
 	opt->width -= *prelen;
