@@ -92,7 +92,11 @@ void		parser(char **format, t_options *opt, va_list ap)
 		if (elf(**format) == 1)
 			save_flag(format, opt);
 		else if ((NUM(**format)) || **format == '.' || **format == '*')
+		{
 			save_widthprec(format, opt, ap);
+			opt->right = (opt->width < 0) ? 1 : opt->right;
+			opt->width *= (opt->width < 0) ? -1 : 1;
+		}
 		else if (elf(**format) == -1)
 			save_len(format, opt);
 		else if (elf(**format) >= 10)
