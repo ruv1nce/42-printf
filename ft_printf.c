@@ -72,10 +72,12 @@ int			ft_printf(char *format, ...)
 {
 	va_list		ap;
 	t_options	opt;
+	char		*valid;
 
 	opt.cnt = 0;
+	valid = NULL;
 	va_start(ap, format);
-	if (!(validator(format)))
+	if (!(validator(format, valid, 0)))
 		return (0);
 	iterator(format, &opt, ap);
 	va_end(ap);

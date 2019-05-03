@@ -46,7 +46,7 @@ typedef void		(*t_printers)(char*, t_options*);
 
 int					ft_printf(char *format, ...);
 void				writer(char *s, int i, t_options *opt);
-int					validator(char *format);
+int					validator(char *format, char* valid, int spec_found);
 void				parser(char **format, t_options *opt, va_list ap);
 int					elf(char x);
 char				*make_i(va_list ap, t_options *opt);

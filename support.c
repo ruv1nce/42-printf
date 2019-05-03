@@ -53,7 +53,6 @@ void		erase_opt(t_options *opt)
 
 void		pointer_opt(t_options *opt)
 {
-	// opt->prec = -1;
 	opt->pad = ' ';
 	opt->hash = 1;
 	opt->len = 3;
@@ -62,18 +61,16 @@ void		pointer_opt(t_options *opt)
 	opt->sign = 0;
 }
 
-int			validator(char *format)
+int			validator(char *format, char *tmp, int spec_found)
 {
-	char	*tmp;
-	int		spec_found;
-
-	while (*format)
+	format--;
+	while (*(++format))
 	{
 		if (*format == '%')
 		{
-			tmp = ++format;
+			tmp = format;
 			spec_found = 0;
-			while (*tmp)
+			while (*(++tmp))
 			{
 				if (elf(*tmp) >= 10)
 				{
@@ -81,14 +78,13 @@ int			validator(char *format)
 					format = tmp;
 					break ;
 				}
-				else if (elf(*tmp) == -10 && !(NUM(*tmp)) && *tmp != '*' && *tmp != '.')
+				else if (elf(*tmp) == -10 && !(NUM(*tmp)) && *tmp != '*'
+						&& *tmp != '.')
 					return (0);
-				tmp++;
 			}
 			if (!spec_found)
 				return (0);
 		}
-		format++;
 	}
 	return (1);
 }
